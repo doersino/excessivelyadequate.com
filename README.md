@@ -52,7 +52,9 @@ else
 fi
 
 # make sure that everything's installed
-bundle install --deployment
+bundle config set --local path "vendor/bundle"
+bundle config set --local deployment "true"
+bundle install
 
 # kick off the build
 bundle exec jekyll build -s "$TMP_GIT_CLONE" -d "$PUBLIC_WWW"
@@ -82,19 +84,19 @@ Then move all the files into the local clone.
 
 Now `git add .`, `git commit ...`, and `git push`.
 
-For running Jekyll locally, execute the following command (it should work just fine with the system-provided Ruby – should this change, just get a more up-to-date Ruby distribution from Homebrew):
+For running Jekyll locally, first install Bundler (which should work just fine with the system-provided Ruby – should this change, just get a more up-to-date Ruby distribution from Homebrew):
 
 ```
-sudo gem install bundler jekyll
+sudo gem install bundler
 ```
 
-Then define the following aliases in your `~/.bashrc` and use them from now on:
+Then define the following aliases in your `~/.bashrc` and use them from now on (note that the environment variable `JEKYLL_NO_BUNDLER_REQUIRE=true` must be set on my system in order to run Jekyll for some reason, I've got no idea why but I know it shouldn't be this way):
 
 ```
-alias jekyllinstall='bundle install --path ./vendor/bundle'  # the --deployment flag also uses ./vendor/bundle, but requires a Gemfile.lock, which in the case of a Jekyll upgrade will not be current
-alias jekyllreinstall='rm Gemfile.lock; bundle install --path ./vendor/bundle'
-alias jekyllserve='bundle exec jekyll serve'
-alias jekyllservei='bundle exec jekyll serve --incremental'
+alias jekyllinstall='bundle config set --local path "vendor/bundle"; bundle install'
+alias jekyllreinstall='rm Gemfile.lock; bundle config set --local path "vendor/bundle"; bundle install'
+alias jekyllserve='JEKYLL_NO_BUNDLER_REQUIRE=true bundle exec jekyll serve'
+alias jekyllservei='JEKYLL_NO_BUNDLER_REQUIRE=true bundle exec jekyll serve --incremental'
 ```
 
 Finally, run `jekyllinstall` and `jekyllserve`.
