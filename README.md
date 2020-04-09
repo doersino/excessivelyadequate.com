@@ -2,7 +2,7 @@
 
 My blog, [excessivelyadequate.com](https://excessivelyadequate.com).
 
-Feedback and contributions are welcome – feel free to file an issue or send a pull request.
+If you've come across an error in a post (even if it's only a typo), please let me know, preferably by [filing an issue](https://github.com/doersino/excessivelyadequate.com/issues/new) or [sending a pull request](https://github.com/doersino/excessivelyadequate.com) (in which case you'll be [listed as a contributor](https://github.com/doersino/excessivelyadequate.com/graphs/contributors)).*
 
 
 ## Deployment
@@ -90,7 +90,7 @@ For running Jekyll locally, first install Bundler (which should work just fine w
 sudo gem install bundler
 ```
 
-Then define the following aliases in your `~/.bashrc` and use them from now on (note that the environment variable `JEKYLL_NO_BUNDLER_REQUIRE=true` must be set on my system in order to run Jekyll for some reason, I've got no idea why but I know it shouldn't be this way):
+Then define the following aliases in your `~/.bashrc` and use them from now on (note that the environment variable `JEKYLL_NO_BUNDLER_REQUIRE=true` must be set on my system in order to run Jekyll for some reason, I've got no idea why – but I know it shouldn't be this way and it wasn't this way before):
 
 ```
 alias jekyllinstall='bundle config set --local path "vendor/bundle"; bundle install'
