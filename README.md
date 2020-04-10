@@ -118,7 +118,7 @@ The software in this repository (i.e. everything *outside* of `_posts`) is licen
 
 ### Libraries
 
-Two JavaScript libraries are used: MathJax and [Littlefoot](https://github.com/goblindegook/littlefoot). Their licenses can be found in their respective directories in `assets/`.
+Two JavaScript libraries are used: KaTeX and [Littlefoot](https://github.com/goblindegook/littlefoot). Their licenses can be found in their respective directories in `assets/`.
 
 ### Webfonts
 

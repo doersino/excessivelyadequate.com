@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}?{{ site.time | date: '%y%m%d' }}">
     <!-- see footer.html for webfont loading -->
     {% if page.usemath %}
-        <script async src="{{ "/assets/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG" | relative_url }}"></script>
+        <link rel="stylesheet" href="{{ "/assets/katex/0.11.1/katex.min.css" | relative_url }}">
+        <script defer src="{{ "/assets/katex/0.11.1/katex.min.js" | relative_url }}"></script>
     {% endif %}
     {% if page.usefootnotes %}
         <link rel="stylesheet" href="{{ "/assets/littlefoot/3.2.4/littlefoot.css" | relative_url }}">

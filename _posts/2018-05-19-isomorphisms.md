@@ -159,11 +159,11 @@ If you think that's not cool enough, I'll have Steven Pigeon, author of the [art
 
 > To pair more than two numbers, pairings of pairings can be used. For example $$(i,j,k)$$ can be defined as $$(i,(j,k))$$ or $$((i,j),k)$$, but $$(i,j,k,l)$$ should be defined as $$((i,j),(k,l))$$ to minimize the size of the number thus produced. The general scheme is then
 >
-> $$ \begin{align*} (a,b,c) &= (a,(b,c))\\
+> $$ \begin{aligned} (a,b,c) &= (a,(b,c))\\
 (a,b,c,d) &= ((a,b),(c,d))\\
 (a,b,c,d,e) &= ((a,b),(c,(d,e)))\\
 (a,b,c,d,e,f) &= ((a,b),((c,d),(e,f)))\\
-(a,b,c,d,e,f,g) &= ((a,(b,c)),((d,e),(f,g))), \end{align*}$$
+(a,b,c,d,e,f,g) &= ((a,(b,c)),((d,e),(f,g))), \end{aligned}$$
 >
 > and so on.
 
