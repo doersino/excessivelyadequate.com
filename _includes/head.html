@@ -9,10 +9,30 @@
     <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}?{{ site.time | date: '%y%m%d' }}">
     <!-- see footer.html for webfont loading -->
     {% if page.usemath %}
-        {% include mathjax_support.html %}
+        <script async src="{{ "/assets/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG" | relative_url }}"></script>
     {% endif %}
     {% if page.usefootnotes %}
-        {% include bigfoot_support.html %}
+        <!--
+        <script src="{{ "/assets/bigfoot/jquery.min.js" | relative_url }}"></script>
+        <script src="{{ "/assets/bigfoot/bigfoot-number/dist/bigfoot.js" | relative_url }}"></script>
+        <link rel="stylesheet" href="{{ "/assets/bigfoot/bigfoot-number/dist/bigfoot-number.css" | relative_url }}">
+        <script type="text/javascript">
+            var bigfoot = $.bigfoot({
+
+                // via https://esham.io/2014/07/mathjax-and-bigfoot
+                activateCallback: function($popover, $button) {
+                    if (MathJax && !$button.data('mathjax-processed')) {
+                        var content_wrapper = $popover.find('.bigfoot-footnote__content')[0];
+                        MathJax.Hub.Queue(['Typeset', MathJax.Hub, content_wrapper]);
+                        MathJax.Hub.Queue(function () {
+                            $button.attr('data-bigfoot-footnote', content_wrapper.innerHTML);
+                            $button.data('mathjax-processed', true);
+                        });
+                    }
+                }
+            });
+        </script>
+        -->
     {% endif %}
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">

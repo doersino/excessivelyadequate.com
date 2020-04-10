@@ -1,17 +1,9 @@
 ---
 layout: default
 ---
-<article>
+<section>
     {{ content }}
 
-    <h2>Posts</h2>
-    <div class="postlist">
-        {% for post in site.posts %}
-
-          <p><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></p>
-        {% endfor %}
-    </div>
-
-    <p class="meta">subscribe via <a href="{{ "/feed.xml" | relative_url }}">RSS</a> or <a href="{{ "/feed.json" | prepend: site.baseurl | prepend: site.url }}">JSON</a></p>
-
+    {% include postlist.html limit=10 %}
+    <h3><a href="{{ "/archive.html" | relative_url }}">⋮ TODO more</a></h3>
 </article>

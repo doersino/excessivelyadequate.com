@@ -108,3 +108,20 @@ Finally, run `jekyllinstall` and `jekyllserve`.
 
 * Run `networksetup -setv6off “Wi-Fi”` before doing any fancy Ruby stuff because `api.rubygems.org` (or something on the way there) can't properly speak IPv6. Then turn it back on again using `networksetup -setv6automatic “Wi-Fi”`. Ugh.
 * Files to be used in posts are to be sorted into `static/`, theme assets into `assets/`.
+
+
+# License
+
+TODO software mit, contents some cc
+
+## Libraries
+
+Two JavaScript libraries are used: MathJax and Bigfoot. Their licenses can be found in their respective directories in `assets/`.
+
+## Webfonts
+
+All webfonts (i.e. everything located in `assets/fonts/`) are licensed under the TODO license, a copy of which is included in each font's directory.
+
+* Iosevka has been downloaded from [the releases section of its GitHub repository](https://github.com/be5invis/Iosevka/releases), namely `01-iosevka-2.3.3.zip`.
+* Work Sans has been grabbed from [its GitHub repository](https://github.com/weiweihuanghuang/Work-Sans) at commit `28b121c`.
+* IBM Plex Serif has been downloaded from [the releases section of its GitHub repository](https://github.com/IBM/plex/releases), namely `Web.zip` of release "v4.0.2".

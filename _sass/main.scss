@@ -1,0 +1,328 @@
+@import "monokai.scss";
+
+:root {
+    --color-text: #222;
+    --color-meta: #555;
+    --color-accent: #ccc;
+    --color-background: #f4f4f4;
+    --color-code-background: #e8e8e8;
+
+    --font-text: 'IBM Plex Serif', serif;
+    --font-meta: 'Work Sans', sans-serif;
+    --font-code: 'Iosevka', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    list-style-type: none;
+}
+
+*::selection {
+  background: var(--color-text);
+  color: white;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: var(--font-text);
+    color: var(--color-text);
+    line-height: 1.5;
+    background: var(--color-background);
+}
+main {
+    max-width: 40em;
+    padding: 2em 4em;
+    margin: auto;
+    background-color: white;
+}
+
+h1, h2, h3, h4, header nav, article header aside, .archive span {
+    font-family: var(--font-meta);
+}
+
+h2, .recents span {
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+h3, .archive span {
+    font-size: 1.2rem;
+}
+h4 {
+    color: var(--color-meta);
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+header h1 {
+    /*font-size: 4em;
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 0.75em;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+    text-shadow: 1px 1px 0 #b8b8b8;
+    transform: rotateY(10deg);
+    transform-origin: top left;
+    */
+    font-size: 5em;
+    width: 5em;
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 0.75em;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+    text-shadow: -2px -1px 0 #b8b8b8, 0.05em 0.08em #eee;
+    transform: perspective(5em) rotateY(20deg);
+    transform-origin: top left;
+    display: inline-block;
+    padding: 0.2em;
+    background-color: #eee;
+    box-shadow: -1px 0 0 #ddd;
+}
+header nav {
+    color: var(--color-meta);
+    margin: 2em 0 4em;
+}
+nav li {
+    display: inline;
+    margin-right: 1em;
+}
+nav svg {
+    height: 1.1em;
+    padding-bottom: 0.25em;
+    vertical-align: bottom;
+    fill: var(--color-meta);
+    stroke: var(--color-meta);
+}
+
+article header {
+    margin-bottom: 2em;
+}
+article header aside {
+    text-transform: uppercase;
+    color: var(--color-meta);
+    font-size: 0.64em;
+    letter-spacing: 0.05em;
+}
+
+h2 {
+    margin: 1rem 0;
+}
+p, h3, h4 {
+    margin: 1em 0;
+}
+
+.archive li {
+    margin: 1rem 0;
+    list-style-type: none;
+}
+.archive span {
+    color: var(--color-meta);
+    display: inline-block;
+    width: 4.5em;
+    vertical-align: top;
+}
+.archive h3 {
+    display: inline-block;
+    width: calc(100% - 4.5em);
+    margin: 0;
+}
+.series span {
+    width: 2.5em;
+}
+.series h3 {
+    width: calc(100% - 2.5em);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    width: 50%;
+    margin: 2.5em 25%;
+    background-color: var(--color-accent);
+}
+
+blockquote {
+    border-left: 1px solid var(--color-accent);
+    padding-left: 1em;
+}
+img {
+    max-width: 100%;
+}
+img.wide, pre {
+    max-width: none;
+    width: calc(100% + 8rem);
+    margin-left: -4rem;
+}
+pre {
+    width: calc(100% + 12rem);
+    margin-left: -6rem;
+}
+p.caption {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.8rem;
+    color: var(--color-meta);
+    margin-top: -1rem;
+}
+pre + p.caption {
+    margin-top: -0.6rem;
+}
+
+strong {
+    font-weight: bold;
+}
+a {
+    color: navy;
+}
+a:hover {
+    color: royalblue;
+}
+a:hover svg {
+    fill: royalblue;
+    stroke: royalblue;
+}
+header a, .archive a, header a, .archive a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+}
+
+article ul li, section ul li {
+    list-style-type: square;
+    margin-left: 2em;
+}
+article ol li, section ol li {
+    list-style-type: decimal;
+    margin-left: 2em;
+}
+
+code {
+    font-family: var(--font-code);
+}
+code:not(pre code) {
+    background-color: var(--color-code-background);
+    padding: 0.05em 0.1em;
+    border-radius: 0.2em;
+}
+pre {
+    overflow-x: scroll;
+    background-color: var(--color-code-background);
+    padding: 1rem;
+    font-size: 0.8em;
+    margin-bottom: 1rem;
+}
+
+/* remove background (plus changes to wide elements) on narrow screens */
+@media screen and (max-width: 54em) {
+    body {
+        background: none !important;
+    }
+    main {
+        max-width: 34em;
+        padding: 2em 1em;
+    }
+    img.wide {
+        width: 100vw;
+        margin-left: calc(-0.5 * (100vw - 100%));
+    }
+    pre {
+        width: calc(100vw - 2em);
+        margin-left: calc(-0.5 * (100vw - 100%) + 1em);
+    }
+}
+
+header nav {
+        display: none;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        float: right;
+    }
+    header nav li {
+        display: block;
+        text-align: right;
+    }
+
+/* make logo smaller on tiny screens */
+@media screen and (max-width: 38em) {
+    main {
+        padding: 1em 1em 0;
+    }
+    header h1 {
+        font-size: 2.5em;
+        margin-bottom: 3rem;
+    }
+    header nav {
+        display: none;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        float: right;
+    }
+    header nav li {
+        display: block;
+        text-align: right;
+    }
+    .archive span, .archive h3, .series span, .series h3 {
+        width: 100%;
+    }
+    img.wide, pre {
+        width: calc(100% + 2rem);
+        margin-left: -1rem;
+    }
+}
+
+/* increase base font size on large screens */
+@media screen and (min-width: 90em) {
+    html {
+        font-size: 20px;
+    }
+}
+@media screen and (min-width: 105em) {
+    html {
+        font-size: 22px;
+    }
+}
+
+.bgtemp {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bigfoot-footnote p,
+.footnotes {
+    font-size: 0.8rem;
+    padding-left: 0;
+    padding-right: 0;
+
+    /* fix for footnotes in headings */
+    font-family: var(--font-text);
+    text-transform: none;
+}
+
+.postlist .seriesindex {
+    color: var(--color-meta);
+    margin-right: 0.2em;
+}
