@@ -25,7 +25,7 @@
                     <% number %>
                 </button>`,
             activateCallback: function(popover, button) {
-                if (MathJax) {
+                if (typeof MathJax !== "undefined") {
                     var content = popover.querySelectorAll('.bigfoot-footnote__content')[0];
                     MathJax.Hub.Queue(['Typeset', MathJax.Hub, content]);
                 }

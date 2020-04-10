@@ -110,17 +110,17 @@ Finally, run `jekyllinstall` and `jekyllserve`.
 * Files to be used in posts are to be sorted into `static/`, theme assets into `assets/`.
 
 
-# License
+## License
 
 My blog posts are licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License.
 
 The software in this repository (i.e. everything *outside* of `_posts`) is licensed under the more liberal MIT License, see `LICENSE`. This license does not, however, apply to the following:
 
-## Libraries
+### Libraries
 
 Two JavaScript libraries are used: MathJax and [Littlefoot](https://github.com/goblindegook/littlefoot). Their licenses can be found in their respective directories in `assets/`.
 
-## Webfonts
+### Webfonts
 
 All webfonts (i.e. everything located in `assets/fonts/`) are licensed under the SIL Open Font License Version 1.1, a copy of which is included in each font's directory.
 

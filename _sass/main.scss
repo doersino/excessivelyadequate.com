@@ -32,7 +32,7 @@ body {
 }
 main {
     max-width: 40em;
-    padding: 2em 4em;
+    padding: 2em 4em 1em;
     margin: auto;
     background-color: white;
 }
@@ -53,7 +53,13 @@ h4 {
     font-size: 0.8em;
     text-transform: uppercase;
 }
+h2.ellipsis {
+    text-align: right;
+}
 
+header {
+    overflow-x: hidden;
+}
 header h1 {
     /*font-size: 4em;
     text-transform: uppercase;
@@ -65,7 +71,7 @@ header h1 {
     transform: rotateY(10deg);
     transform-origin: top left;
     */
-    font-size: 5em;
+    font-size: 4em;
     width: 5em;
     text-transform: uppercase;
     font-weight: 800;
@@ -189,10 +195,13 @@ a:hover svg {
     fill: royalblue;
     stroke: royalblue;
 }
-header a, .archive a, header a, .archive a {
+header a, .archive a, header a, .archive a, .ellipsis a {
     color: inherit;
     text-decoration: none;
     font-weight: inherit;
+}
+header a:hover, .archive a:hover, header a:hover, .archive a:hover, .ellipsis a:hover {
+    color: royalblue;
 }
 
 article ul li, section ul li {
@@ -249,6 +258,9 @@ code:hover, pre:hover {
     main {
         padding: 1em 1em 0;
     }
+    header h1 {
+        font-size: 3.5em;
+    }
     header nav {
         position: absolute;
         top: 1rem;
@@ -277,37 +289,4 @@ code:hover, pre:hover {
 
 .bgtemp {
     display: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.bigfoot-footnote p,
-.footnotes {
-    font-size: 0.8rem;
-    padding-left: 0;
-    padding-right: 0;
-
-    /* fix for footnotes in headings */
-    font-family: var(--font-text);
-    text-transform: none;
-}
-
-.postlist .seriesindex {
-    color: var(--color-meta);
-    margin-right: 0.2em;
 }
