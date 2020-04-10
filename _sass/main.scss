@@ -32,7 +32,7 @@ body {
 }
 main {
     max-width: 40em;
-    padding: 2em 4em 1em;
+    padding: 1em 4em 1em;
     margin: auto;
     background-color: white;
 }
@@ -53,24 +53,13 @@ h4 {
     font-size: 0.8em;
     text-transform: uppercase;
 }
-h2.ellipsis {
-    text-align: right;
-}
 
-header {
+main > header {
     overflow-x: hidden;
+    width: calc(100% + 6rem);
+    margin-left: -3rem;
 }
 header h1 {
-    /*font-size: 4em;
-    text-transform: uppercase;
-    font-weight: 800;
-    line-height: 0.75em;
-    color: var(--color-accent);
-    letter-spacing: -0.02em;
-    text-shadow: 1px 1px 0 #b8b8b8;
-    transform: rotateY(10deg);
-    transform-origin: top left;
-    */
     font-size: 4em;
     width: 5em;
     text-transform: uppercase;
@@ -78,23 +67,25 @@ header h1 {
     line-height: 0.75em;
     color: var(--color-accent);
     letter-spacing: -0.02em;
-    text-shadow: -2px -1px 0 #b8b8b8, 0.05em 0.08em #eee;
+    text-shadow: 1px 0 0 white, -2px -1px 0 #b8b8b8, 0.05em 0.08em #eee;
     transform: perspective(5em) rotateY(20deg);
     transform-origin: top left;
     display: inline-block;
     padding: 0.2em;
     background-color: #eee;
     box-shadow: -1px 0 0 #ddd;
+    margin-left: 1px;
 
     margin-bottom: 2rem;
 }
-header nav {
+nav {
     color: var(--color-meta);
     display: inline-block;
     vertical-align: top;
     float: right;
+    margin-top: -0.36em;
 }
-header nav li {
+nav li {
     display: block;
     text-align: right;
 }
@@ -163,12 +154,13 @@ blockquote {
 img {
     max-width: 100%;
 }
-img.wide, pre {
+img.wide {
     max-width: none;
     width: calc(100% + 8rem);
     margin-left: -4rem;
 }
 pre {
+    max-width: none;
     width: calc(100% + 12rem);
     margin-left: -6rem;
 }
@@ -241,7 +233,11 @@ code:hover, pre:hover {
     }
     main {
         max-width: 34em;
-        padding: 2em 1em;
+        padding: 1em;
+    }
+    main > header {
+        width: calc(100vw - 2em);
+        margin-left: calc(-0.5 * (100vw - 100%) + 1em);
     }
     img.wide {
         width: 100vw;
@@ -255,9 +251,6 @@ code:hover, pre:hover {
 
 /* make logo smaller on tiny screens */
 @media screen and (max-width: 38em) {
-    main {
-        padding: 1em 1em 0;
-    }
     header h1 {
         font-size: 3.5em;
     }
@@ -289,4 +282,27 @@ code:hover, pre:hover {
 
 .bgtemp {
     display: none;
+}
+
+
+
+
+
+/* footnotes */
+sup[id^="fnref:"] {
+    line-height: 0;
+}
+a.footnote, a.reversefootnote {
+    font-family: var(--font-meta);
+    font-weight: 400;
+    text-decoration: none;
+}
+.footnotes {
+    font-size: 0.8em;
+    margin-top: 4rem;
+}
+.footnotes li {
+    font-family: var(--font-meta);
+    list-style-position: inside;
+    margin-left: 0;
 }

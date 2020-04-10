@@ -12,9 +12,11 @@
         <link rel="stylesheet" href="{{ "/assets/katex/0.11.1/katex.min.css" | relative_url }}">
         <script defer src="{{ "/assets/katex/0.11.1/katex.min.js" | relative_url }}"></script>
     {% endif %}
+    <!--
     {% if page.usefootnotes %}
         <link rel="stylesheet" href="{{ "/assets/littlefoot/3.2.4/littlefoot.css" | relative_url }}">
     {% endif %}
+    -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
     <link rel="alternate" title="{{ site.title | escape }}" type="application/json" href="{{ "/feed.json" | relative_url }}">

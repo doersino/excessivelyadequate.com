@@ -8,10 +8,10 @@
     }
 </script>
 
+<!--
 {% if page.usefootnotes %}
     <script src="{{ "/assets/littlefoot/3.2.4/littlefoot.js" | relative_url }}"></script>
     <script type="text/javascript">
-        //littlefoot.default();
         littlefoot.default({
             buttonTemplate: `<button
                 aria-controls="fncontent:<% id %>"
@@ -44,8 +44,9 @@
         });
     </script>
 {% endif %}
+-->
 
-
+{% if page.usemath %}
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll("script[type='math/tex']").forEach(e => {
@@ -60,3 +61,4 @@
         });
     });
 </script>
+{% endif %}
