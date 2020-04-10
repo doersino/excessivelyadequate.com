@@ -112,15 +112,17 @@ Finally, run `jekyllinstall` and `jekyllserve`.
 
 # License
 
-TODO software mit, contents some cc
+My blog posts are licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License.
+
+The software in this repository (i.e. everything *outside* of `_posts`) is licensed under the more liberal MIT License, see `LICENSE`. This license does not, however, apply to the following:
 
 ## Libraries
 
-Two JavaScript libraries are used: MathJax and Bigfoot. Their licenses can be found in their respective directories in `assets/`.
+Two JavaScript libraries are used: MathJax and [Littlefoot](https://github.com/goblindegook/littlefoot). Their licenses can be found in their respective directories in `assets/`.
 
 ## Webfonts
 
-All webfonts (i.e. everything located in `assets/fonts/`) are licensed under the TODO license, a copy of which is included in each font's directory.
+All webfonts (i.e. everything located in `assets/fonts/`) are licensed under the SIL Open Font License Version 1.1, a copy of which is included in each font's directory.
 
 * Iosevka has been downloaded from [the releases section of its GitHub repository](https://github.com/be5invis/Iosevka/releases), namely `01-iosevka-2.3.3.zip`.
 * Work Sans has been grabbed from [its GitHub repository](https://github.com/weiweihuanghuang/Work-Sans) at commit `28b121c`.

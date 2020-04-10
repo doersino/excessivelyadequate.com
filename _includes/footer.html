@@ -7,3 +7,29 @@
         document.head.appendChild(link);
     }
 </script>
+
+{% if page.usefootnotes %}
+    <script src="{{ "/assets/littlefoot/3.2.4/littlefoot.js" | relative_url }}"></script>
+    <script type="text/javascript">
+        //littlefoot.default();
+        littlefoot.default({
+            buttonTemplate: `<button
+                aria-controls="fncontent:<% id %>"
+                aria-expanded="false"
+                aria-label="Footnote <% number %>"
+                class="littlefoot-footnote__button"
+                id="<% reference %>"
+                rel="footnote"
+                title="See Footnote <% number %>"
+                />
+                    <% number %>
+                </button>`,
+            activateCallback: function(popover, button) {
+                if (MathJax) {
+                    var content = popover.querySelectorAll('.bigfoot-footnote__content')[0];
+                    MathJax.Hub.Queue(['Typeset', MathJax.Hub, content]);
+                }
+            }
+        });
+    </script>
+{% endif %}

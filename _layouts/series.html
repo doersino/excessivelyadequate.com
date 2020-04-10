@@ -9,9 +9,11 @@ layout: default
             <p>This series is called "{{ page.tag }}". Take a look at the posts below to figure out what it's actually about! (If you see this, it means that I haven't yet modified the series page template to show a decent summary.)</p>
     {% endcase %}
 
-    <ol class="archive series">
-    {% for post in page.posts reversed %}
-        <li><span>№{{ forloop.index }}</span><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3></li>
-    {% endfor %}
-    </ol>
+    <div class="postlist">
+        <ol class="archive series">
+            {% for post in page.posts reversed %}
+                <li><span>№{{ forloop.index }}</span><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3></li>
+            {% endfor %}
+        </ol>
+    </div>
 </section>
