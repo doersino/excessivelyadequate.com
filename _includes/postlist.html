@@ -5,7 +5,7 @@
             {% unless forloop.first %}
                 </ol>
             {% endunless %}
-            <h1 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h1>
+            <h2 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h2>
             <ol class="archive">
             {% assign date = currentdate %}
         {% endif %}

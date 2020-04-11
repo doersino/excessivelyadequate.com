@@ -1,10 +1,13 @@
 @import "code.scss";
 
+/* variables (could totally use sass variables, but why bother) */
 :root {
     --color-text: #222;
     --color-meta: #555;
     --color-accent: #ccc;
-    --color-background: #f4f4f4;
+
+    --color-page-background: #f4f4f4;
+    --color-main-background: white;
     --color-code-background: #e8e8e8;
 
     --font-text: 'IBM Plex Serif', serif;
@@ -12,6 +15,7 @@
     --font-code: 'Iosevka', monospace;
 }
 
+/* reset */
 * {
     margin: 0;
     padding: 0;
@@ -20,47 +24,32 @@
     list-style-type: none;
 }
 
+/* outermost elements */
 html {
     font-size: 18px;
 }
-
 body {
     font-family: var(--font-text);
     color: var(--color-text);
     line-height: 1.5;
-    background: var(--color-background);
+    background: var(--color-page-background);
 }
 main {
     max-width: 40em;
-    padding: 1em 4em 1em;
+    padding: 1em 4em 1px;
     margin: auto;
-    background-color: white;
+    background-color: var(--color-main-background);
 }
 
-h1, h2, h3, h4, header nav, article header aside, .archive span {
-    font-family: var(--font-meta);
-}
-
-h2, .recents span {
-    font-size: 1.5rem;
-    line-height: 1.3;
-}
-h3, .archive span {
-    font-size: 1.2rem;
-}
-h4 {
-    color: var(--color-meta);
-    font-size: 0.8em;
-    text-transform: uppercase;
-}
-
+/* page header */
 main > header {
     overflow-x: hidden;
     width: calc(100% + 6rem);
     margin-left: -3rem;
+    font-family: var(--font-meta);
 }
 header h1 {
-    font-size: 4em;
+    font-size: 5em;
     width: 5em;
     text-transform: uppercase;
     font-weight: 800;
@@ -75,8 +64,6 @@ header h1 {
     background-color: #eee;
     box-shadow: -1px 0 0 #ddd;
     margin-left: 1px;
-
-    margin-bottom: 2rem;
 }
 nav {
     color: var(--color-meta);
@@ -97,23 +84,69 @@ nav svg {
     stroke: var(--color-meta);
 }
 
-article header {
+nav {
+    margin-top: 0;
+    transform: perspective(20rem) rotateY(-20deg);
+}
+nav li:nth-child(1), nav li:nth-child(2), nav li:nth-child(3) {
+    display: none;
+}
+nav li {
+    font-size: 2em;
+    line-height: 1em;
+    display: block;
+    padding: 0.2em 0.2em 0;
+    margin-bottom: 0.2em;
+    text-shadow: 1px 0 0 white, -2px -1px 0 #b8b8b8, 0.05em 0.08em #eee;
+    transform-origin: top right;
+    background-color: #eee;
+    box-shadow: 1px 0 0 #ddd;
+    margin-right: 1px;
+}
+nav svg {
+    fill: var(--color-accent);
+    stroke: var(--color-accent);
+}
+
+/* articles */
+article, section {
+    margin: 4em 0;
+}
+
+/* article headers */
+article header, section header {
     margin-bottom: 2em;
 }
-article header aside {
+article header aside, section header aside {
     text-transform: uppercase;
     color: var(--color-meta);
+    font-family: var(--font-meta);
     font-size: 0.64em;
     letter-spacing: 0.05em;
 }
 
+/* headings */
+h2, h3, h4, .archive span {
+    font-family: var(--font-meta);
+}
 h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
     margin: 1rem 0;
 }
-p, h3, h4 {
+h3, .archive span {
+    font-size: 1.2rem;
+}
+h4 {
+    color: var(--color-meta);
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+h3, h4 {
     margin: 1em 0;
 }
 
+/* lists of posts */
 .postlist {
     margin-top: 2rem;
 }
@@ -139,6 +172,13 @@ p, h3, h4 {
     width: calc(100% - 2.5em);
 }
 
+/* intra-article elements */
+p {
+    margin: 1em 0;
+}
+strong {
+    font-weight: bold;
+}
 hr {
     border: 0;
     height: 1px;
@@ -146,65 +186,12 @@ hr {
     margin: 2.5em 25%;
     background-color: var(--color-accent);
 }
-
 blockquote {
     border-left: 1px solid var(--color-accent);
     padding-left: 1em;
 }
-img {
-    max-width: 100%;
-}
-img.wide {
-    max-width: none;
-    width: calc(100% + 8rem);
-    margin-left: -4rem;
-}
-pre {
-    max-width: none;
-    width: calc(100% + 12rem);
-    margin-left: -6rem;
-}
-p.caption {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 0.8rem;
-    color: var(--color-meta);
-    margin-top: -1rem;
-}
-pre + p.caption {
-    margin-top: -0.6rem;
-}
 
-strong {
-    font-weight: bold;
-}
-a {
-    color: navy;
-}
-a:hover {
-    color: royalblue;
-}
-a:hover svg {
-    fill: royalblue;
-    stroke: royalblue;
-}
-header a, .archive a, header a, .archive a, .ellipsis a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: inherit;
-}
-header a:hover, .archive a:hover, header a:hover, .archive a:hover, .ellipsis a:hover {
-    color: royalblue;
-}
-
-article ul li, section ul li {
-    list-style-type: square;
-    margin-left: 2em;
-}
-article ol li, section ol li {
-    list-style-type: decimal;
-    margin-left: 2em;
-}
-
+/* code listings */
 code {
     font-family: var(--font-code);
 }
@@ -226,67 +213,63 @@ code:hover, pre:hover {
     font-variant-ligatures: none;
 }
 
-/* remove background (plus changes to wide elements) on narrow screens */
-@media screen and (max-width: 54em) {
-    body {
-        background: none !important;
-    }
-    main {
-        max-width: 34em;
-        padding: 1em;
-    }
-    main > header {
-        width: calc(100vw - 2em);
-        margin-left: calc(-0.5 * (100vw - 100%) + 1em);
-    }
-    img.wide {
-        width: 100vw;
-        margin-left: calc(-0.5 * (100vw - 100%));
-    }
-    pre {
-        width: calc(100vw - 2em);
-        margin-left: calc(-0.5 * (100vw - 100%) + 1em);
-    }
+/* lists */
+article ul li, section ul li {
+    list-style-type: square;
+    margin-left: 2em;
+}
+article ol li, section ol li {
+    list-style-type: decimal;
+    margin-left: 2em;
 }
 
-/* make logo smaller on tiny screens */
-@media screen and (max-width: 38em) {
-    header h1 {
-        font-size: 3.5em;
-    }
-    header nav {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-    }
-    .archive span, .archive h3, .series span, .series h3 {
-        width: 100%;
-    }
-    img.wide, pre {
-        width: calc(100% + 2rem);
-        margin-left: -1rem;
-    }
+/* wider-than-normal elements and ones that can carry captions */
+img {
+    max-width: 100%;
+}
+img.wide {
+    max-width: none;
+    width: calc(100% + 8rem);
+    margin-left: -4rem;
+}
+pre {
+    max-width: none;
+    width: calc(100% + 12rem);
+    margin-left: -6rem;
+}
+blockquote pre {
+    width: 100%;
+    margin-left: 0;
+}
+p.caption {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.8rem;
+    color: var(--color-meta);
+    margin-top: -1rem;
+}
+pre + p.caption {
+    margin-top: -0.6rem;
 }
 
-/* increase base font size on large screens */
-@media screen and (min-width: 90em) {
-    html {
-        font-size: 20px;
-    }
+/* links */
+a {
+    color: navy;
 }
-@media screen and (min-width: 105em) {
-    html {
-        font-size: 22px;
-    }
+a:hover {
+    color: royalblue;
 }
-
-.bgtemp {
-    display: none;
+a:hover svg {
+    fill: royalblue;
+    stroke: royalblue;
 }
-
-
-
-
+header a, .archive a, header a, .archive a, .ellipsis a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+}
+header a:hover, .archive a:hover, header a:hover, .archive a:hover, .ellipsis a:hover {
+    color: royalblue;
+}
 
 /* footnotes */
 sup[id^="fnref:"] {
@@ -305,4 +288,57 @@ a.footnote, a.reversefootnote {
     font-family: var(--font-meta);
     list-style-position: inside;
     margin-left: 0;
+}
+
+/* background svg */
+.bgtemp {
+    display: none;
+}
+
+/* remove background (plus related changes to wide elements) on narrow screens */
+@media screen and (max-width: calc(48 * 18px)) {  /* calc( * 18px) cause rem doesn't work here */
+    body {
+        background: none !important;
+    }
+    main {
+        max-width: 34em;
+        padding: 1em 1em 1px;
+    }
+    main > header, pre {
+        width: calc(100vw - 2em);
+        margin-left: calc(-0.5 * (100vw - 100%) + 1em);
+    }
+    img.wide {
+        width: 100vw;
+        margin-left: calc(-0.5 * (100vw - 100%));
+    }
+}
+
+/* make logo smaller on tiny screens */
+@media screen and (max-width: calc(34 * 18px)) {  /* calc( * 18px) cause rem doesn't work here */
+    article, section {
+        margin: 2em 0;
+    }
+    header h1 {
+        font-size: 3.5em;
+    }
+    header nav {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    .archive span, .archive h3, .series span, .series h3 {
+        width: 100%;
+    }
+    img.wide, pre {
+        width: calc(100% + 2rem);
+        margin-left: -1rem;
+    }
+}
+
+/* increase base font size on large screens */
+@media screen and (min-width: 1280px) {
+    html {
+        font-size: 20px;
+    }
 }
