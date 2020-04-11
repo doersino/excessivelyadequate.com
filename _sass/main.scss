@@ -86,26 +86,18 @@ nav svg {
 
 nav {
     margin-top: 0;
-    transform: perspective(20rem) rotateY(-20deg);
+    text-align: center;
 }
 nav li:nth-child(1), nav li:nth-child(2), nav li:nth-child(3) {
-    display: none;
+    /*display: none;*/
 }
 nav li {
     font-size: 2em;
     line-height: 1em;
-    display: block;
-    padding: 0.2em 0.2em 0;
-    margin-bottom: 0.2em;
-    text-shadow: 1px 0 0 white, -2px -1px 0 #b8b8b8, 0.05em 0.08em #eee;
-    transform-origin: top right;
-    background-color: #eee;
-    box-shadow: 1px 0 0 #ddd;
-    margin-right: 1px;
 }
 nav svg {
-    fill: var(--color-accent);
-    stroke: var(--color-accent);
+    fill: var(--color-meta);
+    stroke: var(--color-meta);
 }
 
 /* articles */
