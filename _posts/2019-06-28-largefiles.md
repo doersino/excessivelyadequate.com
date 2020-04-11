@@ -2,7 +2,6 @@
 layout:       post
 title:        "Removing Large Files From a Git Repository's History"
 date:         2019-06-28 20:00:00 +0200
-usefootnotes: true
 ---
 Part of what makes Git so useful is that it keeps every version of every file you commit to a repository. For files that are changed frequently, this implies a lot of storage overhead. Git tries to keep this overhead manageable by compressing similar files in the repository's history into [packfiles](https://git-scm.com/book/en/v2/Git-Internals-Packfiles), making storage of code and other text-based file formats very space-efficient.
 

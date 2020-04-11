@@ -11,11 +11,11 @@ layout: default
                 {% unless forloop.first %}
                     </ol>
                 {% endunless %}
-                <h2 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h2>
+                <h1 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h1>
                 <ol class="archive">
                 {% assign date = currentdate %}
             {% endif %}
-            <li><span>{{ post.date | date: "%b %-d" }}</span><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3></li>
+            <li><span>{{ post.date | date: "%b %-d" }}</span><h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2></li>
             {% if forloop.last %}
                 </ol>
             {% endif %}

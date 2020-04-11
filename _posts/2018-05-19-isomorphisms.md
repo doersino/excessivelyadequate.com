@@ -2,8 +2,6 @@
 layout:       post
 title:        "Isomorphisms Between Integers and Some Composite Types in Haskell"
 date:         2018-05-19 21:30:00 +0200
-usemath:      true
-usefootnotes: true
 ---
 In category theory, an [isomorphism is a morphism that can be reversed by an inverse morphism](https://en.wikipedia.org/wiki/Isomorphism#Isomorphism_vs._bijective_morphism). But let's not get too bothered by what exactly this means and [what it might imply](https://bartoszmilewski.com/2015/01/07/products-and-coproducts/), instead we'll jump straight to Haskell:
 

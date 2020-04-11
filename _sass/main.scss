@@ -5,10 +5,18 @@
     --color-text: #222;
     --color-meta: #555;
     --color-accent: #ccc;
+    --color-link: navy;
+    --color-link-hover: royalblue;
 
     --color-page-background: #f4f4f4;
     --color-main-background: white;
     --color-code-background: #e8e8e8;
+
+    --color-logo-text: var(--color-accent);
+    --color-logo-text-shine: white;
+    --color-logo-text-sides: #b8b8b8;
+    --color-logo-background: #eee;
+    --color-logo-background-sides: #ddd;
 
     --font-text: 'IBM Plex Serif', serif;
     --font-meta: 'Work Sans', sans-serif;
@@ -46,28 +54,28 @@ main > header {
     width: calc(100% + 6rem);
     margin-left: -3rem;
 }
-header h1 {
+main > header h6 {
     font-family: var(--font-meta);
     font-size: 5em;
     width: 5em;
     text-transform: uppercase;
     font-weight: 800;
     line-height: 0.75em;
-    color: var(--color-accent);
+    color: var(--color-logo-text);
     letter-spacing: -0.02em;
-    text-shadow: 1px 0 0 white, -2px -1px 0 #b8b8b8, 0.05em 0.08em #eee;
+    text-shadow: 1px 0 0 var(--color-logo-text-shine), -2px -1px 0 var(--color-logo-text-sides), 0.05em 0.08em var(--color-logo-background);
     transform: perspective(5em) rotateY(20deg);
     transform-origin: top left;
     display: inline-block;
     padding: 0.2em;
-    background-color: #eee;
-    box-shadow: -1px 0 0 #ddd;
+    background-color: var(--color-logo-background);
+    box-shadow: -1px 0 0 var(--color-logo-background-sides);
     margin-left: 1px;
 }
 
 /* articles */
 article, section {
-    margin: 4em 0;
+    margin: 3em 0 4em;
 }
 
 /* article headers */
@@ -83,24 +91,24 @@ article header aside, section header aside {
 }
 
 /* headings */
-h2, h3, h4, .archive span {
+h1, h2, h3, h4, .archive span {
     font-family: var(--font-meta);
 }
-h2 {
+h1 {
     font-size: 1.5rem;
     line-height: 1.3;
-    margin: 1rem 0;
 }
-h3, .archive span {
+h2, .archive span {
     font-size: 1.2rem;
 }
-h4 {
+h1, h2 {
+    margin: 2rem 0 1rem;
+}
+h3 {
     color: var(--color-meta);
     font-size: 0.8em;
     text-transform: uppercase;
-}
-h3, h4 {
-    margin: 1em 0;
+    margin: 1rem 0;
 }
 
 /* lists of posts */
@@ -117,7 +125,7 @@ h3, h4 {
     width: 4.5em;
     vertical-align: top;
 }
-.archive h3 {
+.archive h2 {
     display: inline-block;
     width: calc(100% - 4.5em);
     margin: 0;
@@ -140,6 +148,9 @@ hr {
 blockquote {
     border-left: 1px solid var(--color-accent);
     padding-left: 1em;
+}
+.center {
+    text-align: center;
 }
 
 /* code listings */
@@ -178,7 +189,7 @@ article ol li, section ol li {
 img {
     max-width: 100%;
 }
-img.wide {
+.wide img {
     max-width: none;
     width: calc(100% + 8rem);
     margin-left: -4rem;
@@ -198,28 +209,24 @@ p.caption {
     color: var(--color-meta);
     margin-top: -1rem;
 }
-pre + p.caption {
+div + p.caption {  /* for code captions */
     margin-top: -0.6rem;
 }
 
 /* links */
 a {
-    color: navy;
+    color: var(--color-link);
 }
 a:hover {
-    color: royalblue;
+    color: var(--color-link-hover);
 }
-a:hover svg {
-    fill: royalblue;
-    stroke: royalblue;
-}
-header a, .archive a, header a, .archive a, .ellipsis a {
+header a, .archive a {
     color: inherit;
     text-decoration: none;
     font-weight: inherit;
 }
-header a:hover, .archive a:hover, header a:hover, .archive a:hover, .ellipsis a:hover {
-    color: royalblue;
+header a:hover, .archive a:hover {
+    color: var(--color-link-hover);
 }
 
 /* footnotes */
@@ -259,7 +266,7 @@ a.footnote, a.reversefootnote {
         width: calc(100vw - 2em);
         margin-left: calc(-0.5 * (100vw - 100%) + 1em);
     }
-    img.wide {
+    .wide img {
         width: 100vw;
         margin-left: calc(-0.5 * (100vw - 100%));
     }
@@ -270,13 +277,13 @@ a.footnote, a.reversefootnote {
     article, section {
         margin: 2em 0;
     }
-    header h1 {
+    main > header h6 {
         font-size: 3.5em;
     }
-    .archive span, .archive h3 {
+    .archive span, .archive h2 {
         width: 100%;
     }
-    img.wide, pre {
+    .wide img, pre {
         width: calc(100% + 2rem);
         margin-left: -1rem;
     }

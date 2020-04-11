@@ -3,7 +3,7 @@ layout: default
 ---
 <article>
     <header>
-        <h2>{{ page.title | escape }}</h2>
+        <h1>{{ page.title | escape }}</h1>
         <aside><time id="postedon" datetime="{{ page.date | date_to_xmlschema }}">Posted <span id="postedago"></span> on {{ page.date | date: "%B %-d, %Y" }}</time></aside>
         <script>
             var date = Date.parse(document.getElementById("postedon").getAttribute("datetime"));
