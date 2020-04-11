@@ -4,6 +4,21 @@ layout: default
 <section>
     {{ content }}
 
-    {% include postlist.html limit=10 %}
-    <h2 class="ellipsis"><a href="{{ "/archive.html" | relative_url }}">⋱</a></h2>
+    <div class="postlist">
+        {% for post in site.posts %}
+            {% assign currentdate = post.date | date: "%Y" %}
+            {% if currentdate != date %}
+                {% unless forloop.first %}
+                    </ol>
+                {% endunless %}
+                <h2 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h2>
+                <ol class="archive">
+                {% assign date = currentdate %}
+            {% endif %}
+            <li><span>{{ post.date | date: "%b %-d" }}</span><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3></li>
+            {% if forloop.last %}
+                </ol>
+            {% endif %}
+        {% endfor %}
+    </div>
 </article>

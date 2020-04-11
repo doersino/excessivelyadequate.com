@@ -43,12 +43,11 @@ main {
 
 /* page header */
 main > header {
-    overflow-x: hidden;
     width: calc(100% + 6rem);
     margin-left: -3rem;
-    font-family: var(--font-meta);
 }
 header h1 {
+    font-family: var(--font-meta);
     font-size: 5em;
     width: 5em;
     text-transform: uppercase;
@@ -64,40 +63,6 @@ header h1 {
     background-color: #eee;
     box-shadow: -1px 0 0 #ddd;
     margin-left: 1px;
-}
-nav {
-    color: var(--color-meta);
-    display: inline-block;
-    vertical-align: top;
-    float: right;
-    margin-top: -0.36em;
-}
-nav li {
-    display: block;
-    text-align: right;
-}
-nav svg {
-    height: 1.1em;
-    padding-bottom: 0.25em;
-    vertical-align: bottom;
-    fill: var(--color-meta);
-    stroke: var(--color-meta);
-}
-
-nav {
-    margin-top: 0;
-    text-align: center;
-}
-nav li:nth-child(1), nav li:nth-child(2), nav li:nth-child(3) {
-    /*display: none;*/
-}
-nav li {
-    font-size: 2em;
-    line-height: 1em;
-}
-nav svg {
-    fill: var(--color-meta);
-    stroke: var(--color-meta);
 }
 
 /* articles */
@@ -156,12 +121,6 @@ h3, h4 {
     display: inline-block;
     width: calc(100% - 4.5em);
     margin: 0;
-}
-.series span {
-    width: 2.5em;
-}
-.series h3 {
-    width: calc(100% - 2.5em);
 }
 
 /* intra-article elements */
@@ -314,12 +273,7 @@ a.footnote, a.reversefootnote {
     header h1 {
         font-size: 3.5em;
     }
-    header nav {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-    }
-    .archive span, .archive h3, .series span, .series h3 {
+    .archive span, .archive h3 {
         width: 100%;
     }
     img.wide, pre {

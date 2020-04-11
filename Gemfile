@@ -19,5 +19,4 @@ gem "jekyll", "3.8.6"
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.6"
    gem "jekyll-minifier"
-   gem "jekyll-tagging"
 end

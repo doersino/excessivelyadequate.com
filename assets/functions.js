@@ -1,9 +1,6 @@
-<svg class="bgtemp" xmlns="http://www.w3.org/2000/svg" style="stroke: rgba(0,0,0,0.05); stroke-width: 0.5px; fill: none;"></svg>
-<script>
+function generateBackgroundImage(X, Y) {
     var rand = Math.random;
 
-    let X = 35;
-    let Y = 35;
     let cells = [];
 
     for (let x = 0; x < X; x++) {
@@ -111,32 +108,38 @@
         }
     }
 
-    document.querySelector("body").style.backgroundImage = `url('data:image/svg+xml;base64,${btoa(svg.outerHTML)}')`;
-    document.querySelector("body").style.backgroundSize = X * 16 + "px";
-</script>
-<header>
-    <h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
-    <nav>
-        <ul>
-            <!--<li><a href="{{ "/about.html" | relative_url }}">About</a></li>
-            <li><a href="{{ "/series.html" | relative_url }}">Series</a></li>
-            <li><a href="{{ "/archive.html" | relative_url }}">Archive</a></li>-->
-            <li><a href="{{ "/about.html" | relative_url }}">?</a></li>
-            <li><a href="{{ "/feed.xml" | relative_url }}">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="stroke: none;">
-                    <g transform="scale(0.8) translate(2.4, 2.4)">
-                        <path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/>
-                    </g>
-                </svg>
-            </a></li>
-            <li><a href="TODO webring">
-                <svg viewBox="0 0 235 235" xmlns="http://www.w3.org/2000/svg" style="fill: none; stroke-width: 28px; stroke-linecap: square;">
-                <!--<path d="M0,0 235,0 235,235 0,235 0,0" style="stroke: red; stroke-width: 1px"></path>-->
-                    <g transform="translate(121,140),rotate(120,0,0)"><path d="M0,-60 a60,60 0 1,0 0,120 l100,0"></path></g>
-                    <g transform="translate(121,140),rotate(240,0,0)"><path d="M0,-60 a60,60 0 1,0 0,120 l100,0"></path></g>
-                    <g transform="translate(121,140),rotate(0,0,0)"><path d="M0,-60 a60,60 0 1,0 0,120 l100,0"></path></g>
-                </svg>
-            </a></li>
-        </ul>
-    </nav>
-</header>
+    return svg;
+}
+
+// dynamically calculate time ago based on http://stackoverflow.com/a/3177838,
+// used for progressive enhancement of post metadata
+function ago(date) {
+    function render(n, unit) {
+        return n + " " + unit + ((n == 1) ? "" : "s") + " ago";
+    }
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = Math.floor(seconds / (60 * 60 * 24 * 365));
+    if (interval >= 1) {
+        return render(interval, "year");
+    }
+    interval = Math.floor(seconds / (60 * 60 * 24 * 30));
+    if (interval >= 1) {
+        return render(interval, "month");
+    }
+    interval = Math.floor(seconds / (60 * 60 * 24));
+    if (interval >= 1) {
+        return render(interval, "day");
+    }
+    interval = Math.floor(seconds / (60 * 60));
+    if (interval >= 1) {
+        return render(interval, "hour");
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval >= 1) {
+        return render(interval, "minute");
+    }
+    interval = Math.floor(seconds);
+    return render(interval, "second");
+}

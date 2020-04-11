@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  {% include head.html %}
-  <body>
-    <main>
-      {% include header.html %}
-      {{ content }}
-    </main>
-    {% include footer.html %}
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+        <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+        <link rel="shortcut icon" href="{{ "/assets/favicon.png" | relative_url }}">
+        <link rel="apple-touch-icon" href="{{ "/assets/favicon.png" | relative_url }}">
+        <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+        <link rel="alternate" type="application/json" title="{{ site.title | escape }}" href="{{ "/feed.json" | relative_url }}">
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+        <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}?{{ site.time | date: '%y%m%d' }}">
+        <script src="{{ "/assets/functions.js" | relative_url }}"></script>
+
+        <link rel="stylesheet" href="{{ "/assets/katex/0.11.1/katex.min.css" | relative_url }}">
+        <script defer src="{{ "/assets/katex/0.11.1/katex.min.js" | relative_url }}"></script>
+    </head>
+    <body>
+        <main>
+            <svg class="bgtemp" xmlns="http://www.w3.org/2000/svg" style="stroke: rgba(0,0,0,0.05); stroke-width: 0.5px; fill: none;"></svg>
+            <script>
+                var X = 25;
+                var Y = 25;
+                var svg = generateBackgroundImage(X, Y);
+                document.body.style.backgroundImage = `url('data:image/svg+xml;base64,${btoa(svg.outerHTML)}')`;
+                document.body.style.backgroundSize = X * 16 + "px";
+            </script>
+            <header>
+                <h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
+            </header>
+            {{ content }}
+        </main>
+        <script>
+            // load fonts, see https://meowni.ca/posts/web-fonts/
+            document.addEventListener("DOMContentLoaded", function() {
+                var link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.href="{{ "/assets/webfonts.css" | relative_url }}"
+                document.head.appendChild(link);
+            });
+
+            // render math
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelectorAll("script[type^='math/tex']").forEach(e => {
+                    let tex = e.innerText;
+                    let display = e.type.includes("mode=display");
+                    let html = katex.renderToString(tex, {displayMode: display});
+                    e.outerHTML = html;
+                });
+            });
+        </script>
+    </body>
 </html>
