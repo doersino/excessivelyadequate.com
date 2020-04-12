@@ -1,4 +1,21 @@
 @font-face {
+  font-family: 'Work Sans';
+  font-weight: 400;
+  font-style: normal;
+  src: url('webfonts/work-sans/WorkSans-Regular.woff2') format('woff2'),
+       url('webfonts/work-sans/WorkSans-Regular.woff') format('woff'),
+       url('webfonts/work-sans/WorkSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-weight: 800;
+  font-style: normal;
+  src: url('webfonts/work-sans/WorkSans-ExtraBold.woff2') format('woff2'),
+       url('webfonts/work-sans/WorkSans-ExtraBold.woff') format('woff'),
+       url('webfonts/work-sans/WorkSans-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'Iosevka';
   font-weight: 400;
   font-style: normal;
@@ -30,23 +47,6 @@
        url('webfonts/iosevka/iosevka-bolditalic.woff') format('woff'),
        url('webfonts/iosevka/iosevka-bolditalic.ttf') format('truetype');
 }*/
-
-@font-face {
-  font-family: 'Work Sans';
-  font-weight: 400;
-  font-style: normal;
-  src: url('webfonts/work-sans/WorkSans-Regular.woff2') format('woff2'),
-       url('webfonts/work-sans/WorkSans-Regular.woff') format('woff'),
-       url('webfonts/work-sans/WorkSans-Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Work Sans';
-  font-weight: 800;
-  font-style: normal;
-  src: url('webfonts/work-sans/WorkSans-ExtraBold.woff2') format('woff2'),
-       url('webfonts/work-sans/WorkSans-ExtraBold.woff') format('woff'),
-       url('webfonts/work-sans/WorkSans-ExtraBold.ttf') format('truetype');
-}
 
 @font-face {
   font-family: 'IBM Plex Serif';

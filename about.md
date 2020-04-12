@@ -11,7 +11,7 @@ This page serves three purposes:
 3. And this:
 
 
-### Colophon
+## Colophon
 
 This [Jekyll](https://jekyllrb.com) blog was most recently updated on {{ site.time | date: '%B %-d, %Y' }}. It is hosted on [Uberspace](https://uberspace.de) and its source code is available on [GitHub](https://github.com/doersino/excessivelyadequate.com). Headlines and such are set in [Work Sans](https://github.com/weiweihuanghuang/Work-Sans), code is displayed in [Iosevka](https://github.com/be5invis/Iosevka/releases) and everything else uses the [IBM Plex Serif](https://github.com/IBM/plex/releases) font -- except for math, which is displayed using [KaTeX](https://katex.org) with its default font.
 

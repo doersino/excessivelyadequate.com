@@ -35,18 +35,21 @@
 /* outermost elements */
 html {
     font-size: 18px;
+    height: 100%;
 }
 body {
     font-family: var(--font-text);
     color: var(--color-text);
     line-height: 1.5;
     background: var(--color-page-background);
+    height: 100%;
 }
 main {
     max-width: 40em;
     padding: 1em 4em 1px;
     margin: auto;
     background-color: var(--color-main-background);
+    min-height: 100%;
 }
 
 /* page header */

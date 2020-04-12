@@ -124,6 +124,6 @@ Two JavaScript libraries are used: KaTeX and [Littlefoot](https://github.com/gob
 
 All webfonts (i.e. everything located in `assets/fonts/`) are licensed under the SIL Open Font License Version 1.1, a copy of which is included in each font's directory.
 
+* Work Sans has been downloaded from [its GitHub repository](https://github.com/weiweihuanghuang/Work-Sans) at commit `28b121c`.
 * Iosevka has been downloaded from [the releases section of its GitHub repository](https://github.com/be5invis/Iosevka/releases), namely `01-iosevka-2.3.3.zip`.
-* Work Sans has been grabbed from [its GitHub repository](https://github.com/weiweihuanghuang/Work-Sans) at commit `28b121c`.
-* IBM Plex Serif has been downloaded from [the releases section of its GitHub repository](https://github.com/IBM/plex/releases), namely `Web.zip` of release "v4.0.2".
+* IBM Plex Serif has been grabbed from [the releases section of its GitHub repository](https://github.com/IBM/plex/releases), namely `Web.zip` of release "v4.0.2".
