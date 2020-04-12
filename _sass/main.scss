@@ -178,11 +178,11 @@ code:hover, pre:hover {
 /* lists */
 article ul li, section ul li {
     list-style-type: square;
-    margin-left: 2em;
+    margin: 1rem 2em 1rem;
 }
 article ol li, section ol li {
     list-style-type: decimal;
-    margin-left: 2em;
+    margin: 1rem 2em 1rem;
 }
 
 /* wider-than-normal elements and ones that can carry captions */

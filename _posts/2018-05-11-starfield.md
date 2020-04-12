@@ -1,14 +1,14 @@
 ---
 layout:       post
-title:        "Recreating Starfield in JavaScript"
+title:        "Recreating the Starfield screensaver in JavaScript"
 date:         2018-05-11 14:00:00 +0200
 ---
 
-Do you remember the old [Starfield screensaver](https://www.youtube.com/watch?v=n3n3m2B0KFo) from back when Windows still had sensible version numbers? Although that was mostly before my time, I vaguely remember using a computer that came with it when I was around elementary school age. [^eisenbahn]
+Do you remember the old [Starfield screensaver](https://www.youtube.com/watch?v=n3n3m2B0KFo) from back when Windows still had sensible version numbers? Although that was mostly before my time, I vaguely remember[^eisenbahn] using a computer that came with it when I was around elementary school age.
 
 Today, let's reimplement it (or something close to it, at least) in a couple dozen lines of vanilla JavaScript!
 
-In case you're a bit impatient: Instead of embedding the finished result here, which would invariably break as soon as I change the post layout even a little bit, I've uploaded a [full-screen demo ready for your enjoyment]({{ "/static/starfield.html" | relative_url }}). [^websaver][^about]
+In case you're a bit impatient: Instead of embedding the finished result here, which would invariably break as soon as I change the post layout even a little bit, I've uploaded a [full-screen demo ready for your enjoyment]({{ "/static/starfield.html" | relative_url }})[^websaver].
 
 
 ## Implementation
@@ -59,7 +59,7 @@ var c = canvas.getContext("2d");
 
 With this setup work out of the way, we can start igniting some stars. We'll generate their initial positions and `push` them onto a list which we'll later be able to iterate over in the main drawing loop.
 
-The initial distribution of the stars should ideally be random – but not uniformly random: To get the mesmerizing perspective effect, we need a higher density of (smaller) stars in the middle of the canvas compared to the edges. [^converge] It's also a good idea to "reuse" stars by respawning them once they fall off the edges of the screen (more on that in a bit), keeping the star count constant over time.
+The initial distribution of the stars should ideally be random – but not uniformly random: To get the mesmerizing perspective effect, we need a higher density[^converge] of (smaller) stars in the middle of the canvas compared to the edges. It's also a good idea to "reuse" stars by respawning them once they fall off the edges of the screen (more on that in a bit), keeping the star count constant over time.
 
 After some trial and error, I came up with the following snippet that seems to do the job alright. The `rand()` function generates random numbers in the interval $$[-0.5,0.5]$$ with a strong bias toward the middle of that interval. After setting a desired star count and initializing a list, we can randomly generate the initial $$(x,y)$$ coordinate pairs by scaling the `rand()` output depending on the width and height of the canvas.
 
@@ -106,7 +106,7 @@ for (var i = 0; i < stars.length; i++) {
 }
 ```
 
-Now, before drawing each star, we need to consider that as the stars travel further from the center of the screen and begin to move past the imaginary spaceship, you want them to grow larger. [^realism] Put differently, their radius depends on their distance from the center:
+Now, before drawing each star, we need to consider that as the stars travel further from the center of the screen and begin to move past the imaginary spaceship, you want them to grow larger. Put differently, their radius `r`[^realism] depends on their distance from the center:
 
 ```js
 // compute radius depending on euclidean distance from center
@@ -138,7 +138,7 @@ c.fillStyle = "white";
 c.fill();
 ```
 
-Finally, all that's left is to update its position, which can be accomplished by adding a number that grows with increased distance to the center. [^speed]
+Finally, all that's left is to update its position, which can be accomplished by adding a number that grows[^speed] with increased distance to the center.
 
 ```js
 // update star
@@ -163,7 +163,7 @@ That's all there is to it, really! Once again, you can [see a demo over here]({{
 
 ## Notes
 
-It'd be easy to add a twinkling effect to the stars. This could be achieved by randomly varying each star's brightness during the drawing stage.
+It'd be easy to add a twinkling effect to the stars – this could be achieved by randomly varying each star's brightness during the drawing stage.
 
 Another interesting modification would be to add differently sized stars to increase the perceived depth. This would require randomly generating a size factor along with the initital positions and adjusting the radius computation accordingly.
 
@@ -173,7 +173,6 @@ This implementation avoids two pitfalls I've commonly[^commonly] encountered in 
 
 
 [^eisenbahn]: I also vividly remember [this screensaver](http://www.mm-eisenbahn.de/index_e.html), which seems to still be under semi-active development, with a [sizable community](http://www.mm-eisenbahn.de/ScrUser2_E.html).
-[^about]: Along with a few other simple effects, you can also see it superimposed over the logo [on my about page]({{ "/about/" | relative_url }}).
 [^websaver]: If you're on macOS, you can *actually* use this as a screensaver using [MacSaver](https://github.com/tlrobinson/WebSaver). If not, I'm sure there's similar tools for the operating system you're using!
 [^converge]: In other words, an initial uniform distribution would not match what the distribution would invariably converge to after a while. Also, because of the speedup the stars experience as they approach the edges of the screen, most of the initial stars would fall off the edge almost immediately. This wouldn't be much of an issue after the first three or four seconds, but first impressions matter!
 [^realism]: For a more realistic look, you could set `r` to a constant value – stars tend to be far away, after all. Growing them slightly larger as they come closer, however, tremendously helps in adding a sense of depth.

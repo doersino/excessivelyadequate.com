@@ -56,38 +56,34 @@ function generateBackgroundImage(X, Y) {
         return elem;
     };
 
-    var cross = (x,y) => {
-        return `
-            <path d="M ${x},${y}    L ${x+10},${y+10}"></path>
-            <path d="M ${x},${y+10} L ${x+10},${y}   "></path>
-        `
-    };
-    var circle = (x,y) => {
-        return `<circle cx="${x+5}" cy="${y+5}" r="5"/>`
-    }
-    var triangle = (x,y) => {
-        return `
-            <path d="M ${x},${y} L ${x+10},${y} L ${x+5},${y+10} Z"></path>
-        `
-    }
-    var plus = (x,y) => {
-        return `
-            <path d="M ${x+5},${y} L ${x+5},${y+10}"></path>
-            <path d="M ${x},${y+5} L ${x+10},${y+5}"></path>
-        `
-    }
-    var lines = (x,y) => {
-        return `
-            <path d="M ${x},${y+5}    L ${x+5},${y}"></path>
-            <path d="M ${x+5},${y+10} L ${x+10},${y+5}"></path>
-        `
-    }
-    var zigzag = (x,y) => {
-        return `
-            <path d="M ${x},${y+5} L ${x+2.5},${y} L ${x+5},${y+5} L ${x+7.5},${y+10} L ${x+10},${y+5}"></path>
-        `
-    }
+    var cross = (x,y) => `
+        <path d="M ${x},${y}    L ${x+10},${y+10}" />
+        <path d="M ${x},${y+10} L ${x+10},${y}   " />
+    `;
+    var circle = (x,y) => `
+        <circle cx="${x+5}" cy="${y+5}" r="5" />
+    `;
+    var triangle = (x,y) => `
+        <path d="M ${x},${y} L ${x+10},${y} L ${x+5},${y+10} Z" />
+    `;
+    var plus = (x,y) => `
+        <path d="M ${x+5},${y} L ${x+5},${y+10}" />
+        <path d="M ${x},${y+5} L ${x+10},${y+5}" />
+    `;
+    var lines = (x,y) => `
+        <path d="M ${x},${y+5}    L ${x+5},${y}" />
+        <path d="M ${x+5},${y+10} L ${x+10},${y+5}" />
+    `
+    var zigzag = (x,y) => `
+        <path d="M ${x},${y+5} L ${x+2.5},${y} L ${x+5},${y+5} L ${x+7.5},${y+10} L ${x+10},${y+5}" />
+    `;
     var shapes = [cross, circle, triangle, plus, lines, zigzag];
+
+    // remove some of the shapes from this list to keep things interesting on refresh
+    for (let n = 0; n < shapes.length / 2; n++) {
+        let i = Math.floor(rand()*shapes.length);
+        shapes.splice(i, 1);
+    }
 
     var cell = (x,y) => {
         var acc = "";

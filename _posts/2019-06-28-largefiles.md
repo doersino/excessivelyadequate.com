@@ -30,9 +30,9 @@ git push --force
 
 This might take a few minutes, but Git does a good job keeping you updated on its progress.
 
-Please note that this is a bit of a ⚠️dangerous⚠️ operation (it rewrites your repository's entire history, notably changing all commit hashes), so you should check in with your contributors first. It's probably a decent idea to make a full backup, too.
+Please note that this is a bit of a *dangerous* operation (it rewrites your repository's entire history, notably changing all commit hashes), so you should check in with your contributors first. It's probably a decent idea to make a full backup, too.
 
 
 
 [^generated]: *Especially* if the files can be regenerated quickly and easily from the repository's contents.
-[^why]: In my case, I was frequently adding to a LaTeX-based list of recipes, with a photo for each recipe. I eventually (when the repository's size approached a gigabyte) realized that there was no point in maintaining the resulting PDF in Git, hence this post. (My working copy of the repository also lives in my Dropbox, so I'm able to access the PDF from anywhere, at any time, anyway.)
+[^why]: In my case, I was frequently adding to a LaTeX-based list of recipes, with a photo for each recipe. I eventually (when the repository's size approached a gigabyte) realized that there was no point in maintaining the resulting PDF in Git, hence this post. (My working copy of the repository lives in my Dropbox anyway, so I'm able to access the PDF from anywhere, at any time.)
