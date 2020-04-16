@@ -25,17 +25,8 @@ permalink: /posts/:title.html
 markdown: kramdown
 plugins:
   - jekyll-feed
-  - jekyll-minifier
 exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
   - README.md
-
-jekyll-minifier:
-  exclude:
-    - 'feed.json'
-    - 'feed.xml'
-    - 'assets/katex/*'
-    - 'assets/fonts/*'
-    - 'static/*'
