@@ -186,16 +186,17 @@ kbd {
 /* wide display math */
 .katex-display {
     overflow-x: scroll;
+    overflow-y: hidden;  /* fix for webkit always displaying a vertical scroll bar when setting overflow-x: scroll; */
 }
 
 /* lists */
 article ul li, section ul li {
     list-style-type: square;
-    margin: 1rem 2em 1rem;
+    margin: 1rem 0 1rem 2em;
 }
 article ol li, section ol li {
     list-style-type: decimal;
-    margin: 1rem 2em 1rem;
+    margin: 1rem 0 1rem 2em;
 }
 
 /* wider-than-normal elements and ones that can carry captions */
@@ -259,6 +260,9 @@ a.footnote, a.reversefootnote {
     font-family: var(--font-meta);
     list-style-position: inside;
     margin-left: 0;
+}
+.footnotes li p:first-child {
+    display: inline;  /* fix for chrome and firefox not merging list number into footnote text when list-style-position: inside; is set*/
 }
 
 /* background svg */
