@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "Recreating the Starfield screensaver in JavaScript"
+title:        "Recreating the Starfield Screensaver in JavaScript"
 date:         2018-05-11 14:00:00 +0200
 ---
 

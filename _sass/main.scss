@@ -92,6 +92,9 @@ article header aside, section header aside {
     font-size: 0.64em;
     letter-spacing: 0.05em;
 }
+aside abbr {
+    text-decoration: none;
+}
 
 /* headings */
 h1, h2, h3, h4, .archive span {
@@ -163,7 +166,7 @@ code, kbd {
 code:not(pre code), kbd {
     background-color: var(--color-code-background);
     padding: 0.05em 0.1em;
-    border-radius: 0.2em;
+    border-radius: 0.1em;
 }
 pre {
     overflow-x: scroll;
@@ -187,6 +190,7 @@ kbd {
 .katex-display {
     overflow-x: scroll;
     overflow-y: hidden;  /* fix for webkit always displaying a vertical scroll bar when setting overflow-x: scroll; */
+    padding-top: 0.1em;  /* fix for the top of fractions being slightly cut off due to the overflow setting */
 }
 
 /* lists */
@@ -213,7 +217,7 @@ pre {
     width: calc(100% + 12rem);
     margin-left: -6rem;
 }
-blockquote pre {
+blockquote pre, li pre {
     width: 100%;
     margin-left: 0;
 }
