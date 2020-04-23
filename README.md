@@ -114,11 +114,11 @@ Finally, run `jekyllinstall` and `jekyllserve`.
 
 My blog posts are licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License.
 
-The software in this repository (i.e. everything *outside* of `_posts`) is licensed under the more liberal MIT License, see `LICENSE`. This license does not, however, apply to the following:
+The software in this repository (i.e. everything *outside* of `_posts` and `static`) is licensed under the more liberal MIT License, see `LICENSE`. This license does not, however, apply to the following:
 
 ### Libraries
 
-Two JavaScript libraries are used: KaTeX and [Littlefoot](https://github.com/goblindegook/littlefoot). Their licenses can be found in their respective directories in `assets/`.
+[KaTeX](https://katex.org) is used for rendering math, its license can be found in its directory in `assets/`.
 
 ### Webfonts
 

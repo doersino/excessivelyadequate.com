@@ -234,6 +234,7 @@ div + p.caption {  /* for code captions */
 /* links */
 a {
     color: var(--color-link);
+    font-weight: inherit;
 }
 a:hover {
     color: var(--color-link-hover);
