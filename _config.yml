@@ -16,7 +16,7 @@
 title: Excessively Adequate
 email: hi@noahdoersing.com
 description: > # this means to ignore newlines until "baseurl:"
-  This is a blog on software development and other things that interest me.
+  This is a blog about programming and adjacent subjects that interest me.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://excessivelyadequate.com" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /posts/:title.html
