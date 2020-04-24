@@ -18,17 +18,17 @@ In this post, I'll present a surprisingly simple recursive CTE[^postgres] that i
 
 ## Theory
 
-The *Sierpiński triangle*, which you've already seen above, is a self-similar fractal that takes the shape of an equailateral triangle that's divided into four sub. It can be constructed in a [variety of ways](https://en.wikipedia.org/wiki/Sierpiński_triangle#Constructions), all[^rule90] of which are interesting – but we'll focus on just one of them in this post.
+The *Sierpiński triangle*, which you've already seen above, is a self-similar fractal that takes the shape of an equailateral triangle that's divided into four "subtriangles": the middle one is blank, the rest are again divided in the same manner, *ad infinitum*. It can be constructed in a [variety of ways](https://en.wikipedia.org/wiki/Sierpiński_triangle#Constructions), all[^rule90] of which are interesting – but we'll focus on just one of them in this post.
 
-*Iterated function systems*, meanwhile, are commonly [utitlized in the generation of self-similar fractals](https://twitter.com/CentrlPotential/status/1250172108811927552) like the one we'll be drawing today. Wikipedia [defines](https://en.wikipedia.org/wiki/Iterated_function_system#Definition) them as follows:
+*Iterated function systems*, meanwhile, are commonly [utilized in the generation of self-similar fractals](https://twitter.com/CentrlPotential/status/1250172108811927552) like the one we'll be drawing today. Wikipedia [defines](https://en.wikipedia.org/wiki/Iterated_function_system#Definition) them as follows:
 
 > Formally, an iterated function system is a finite set of contraction mappings on a complete metric space.
 
 There you go.
 
-Just kidding – that sentence makes no sense to me because I'm bad at math, and I hope you're not offended if I proceed under the assumption that you're not much better at it. *Informally*, an iterated function system (IFS) is a set of functions that can be applied to each other's outputs in any order and as many times as you like, with the results ending up distributed in a hopefully interesting manner.
+Just kidding – that sentence makes no sense to me because I'm bad at math, and I hope you're not offended if I proceed under the assumption that you're not much better at it. *Informally*, an iterated function system (IFS) is a *set of functions that can be applied to each other's outputs in any order and as many times as you like*, with the results ending up distributed in a hopefully-interesting manner.
 
-Wikipedia goes on to outline the particular application of IFS we'll be employing:
+Wikipedia goes on to outline the particular application of IFS we'll be performing:
 
 > The most common algorithm to compute IFS fractals is called the "[chaos game](https://en.wikipedia.org/wiki/Chaos_game)". It consists of picking a random point in the plane, then iteratively applying one of the functions chosen at random from the function system to transform the point to get a next point.
 
@@ -60,9 +60,11 @@ You can observe this in the following[^subplots] image – each subplot, from to
 
 ## Recursive CTEs
 
-[Common table expressions](https://www.postgresql.org/docs/12/queries-with.html) (CTEs) are [incredibly useful](https://stackoverflow.com/questions/4740748/when-to-use-common-table-expression-cte) for structuring complex queries, allowing the query writer to define temporary `VIEW`-like constructs. They help with breaking up a large query into named, potentially reusable components: The `WITH` keyword is used chain queries together, while assigning a name to each query by which its results can be referenced in all following queries within the same `WITH` block.
+Let's get to know the SQL feature that will be instrumental in implementing our IFS!
 
-A `WITH` block is terminated by a standard query which may reference any of the named components – commonly, this is just a `TABLE` statement.
+[Common table expressions](https://www.postgresql.org/docs/12/queries-with.html) (CTEs) are [incredibly useful](https://stackoverflow.com/questions/4740748/when-to-use-common-table-expression-cte) for structuring complex queries, allowing the query writer to define temporary `VIEW`-like constructs. They help with breaking up a large query into potentially reusable components: The `WITH` keyword is used to chain queries together, while assigning a name to each component query by which its results can be referenced in all following queries within the same `WITH` block.
+
+A `WITH` block is terminated by a standard query which may reference any of the named components – frequently, this is just a `TABLE` statement.
 
 As an example, this basic[^toobasic] CTE computes the [sum of squared residuals](https://en.wikipedia.org/wiki/Residual_sum_of_squares) between a predicted result and a sequence[^oeis] of observations:
 
@@ -89,7 +91,7 @@ sum(n) AS (
 TABLE sum;
 ```
 
-Recursive CTEs, recognizable by the `WITH RECURSIVE` keywords, have another ace up their sleeve: They can run a *self-referential* query multiple times until it produces no further rows. Somewhat unintuitively, this is an *iterative* process.
+*Recursive CTEs*, recognizable by the `WITH RECURSIVE` keywords, have another ace up their sleeve: They can run a *self-referential* query multiple times until it produces no further rows. Somewhat unintuitively, this is an *iterative* process.
 
 Let's consider an example which computes the factorial of the number 7:
 
@@ -112,7 +114,7 @@ A recursive CTE must be [composed of three parts](https://www.postgresql.org/doc
 
 1. A *non-recursive term* – here, `SELECT 7, 1`.
 
-    This query is evaluated exactly once at the beginning of the iterative process. Its results are inserted into both the temporary <span style="color: darkblue;">*working* table</span> and, after the second part ↓ is considered, to the <span style="color: darkgreen;">*output* table</span>. This constitutes the first iteration of the CTE.
+    This query is evaluated exactly once at the beginning of the iterative process. Its results are inserted into both a temporary <span style="color: darkblue;">*working* table</span> and, after the second part ↓ is considered, into the <span style="color: darkgreen;">*output* table</span>. This constitutes the first iteration of the CTE.
 
 2. An operator that steers how results are combined after each iteration: either `UNION ALL` or `UNION`.
 
@@ -124,14 +126,14 @@ A recursive CTE must be [composed of three parts](https://www.postgresql.org/doc
 
     If and only if the <span style="color: darkblue;">working table</span> is empty at the beginning of an iteration, the process terminates.
 
-In Postgres, the recursive term of a CTE supports a subset of the usual SQL querying toolbox. Most notably, `ORDER BY` cannot[^goodreason] be used – but it's allowed within subqueries, which makes this particular limitation a non-issue in practice.
+In Postgres, the recursive term of a CTE merely supports a subset of the usual SQL querying toolbox. Most notably, `ORDER BY` cannot[^goodreason] be used – but it's allowed within subqueries, which makes this particular limitation a non-issue in practice.
 
 
 ## Implementation
 
 Hoping that you've [grokked](http://catb.org/jargon/html/G/grok.html) the general concepts of iterated function systems and recursive CTEs, let's begin implementing our Sierpiński triangle generator in SQL.
 
-First, we'll need[^hardcode] to define a table to house the three anchor points $$P_n$$ – nothing fancy, we don't even need an `id` column:
+First, we'll need to define a table[^hardcode] to house the three anchor points $$P_n$$ – nothing fancy, we don't even need an `id` column:
 
 ```sql
 CREATE TABLE anchors (
@@ -145,13 +147,15 @@ INSERT INTO anchors VALUES
   (1, 1);
 ```
 
-Before writing the query, we'll define how many iterations of our function system we want to compute. `psql`'s [`\set` functionality](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-VARIABLES) comes in handy here (note that `1e4` is simply a shorthand for $$1 \cdot 10^4$$).
+Before writing the query, we'll define how many iterations of our function system we want to compute. `psql`'s [`\set` functionality](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-VARIABLES) comes in handy here (note that `1e4` is just a shorthand for $$1 \cdot 10^4$$).
 
 ```sql
 \set n 1e4
 ```
 
-Let's get to writing the recursive query that will play the chaos game for us. I'll reveal it in stages in roughly the same order that I formulated the query in, beginning with the schema of our `RECURSIVE`ly built-up table: We need to store $$p = (p.x, p.y)$$ along with an `id` column which is going to be incremented in each iteration until it eclipses `:n`, which is our termination condition.
+Let's now get to writing the recursive query that will play the chaos game for us!
+
+I'll reveal it in stages in roughly the same order I formulated the query in, beginning with the schema of our `RECURSIVE`ly built-up table: We need to store $$p = (p.x, p.y)$$ along with an `id` column which is going to be incremented in each iteration until it eclipses `:n`, which is our termination condition.
 
 ```sql
 WITH RECURSIVE points(id, x, y) AS (
@@ -250,7 +254,7 @@ WITH RECURSIVE points(id, x, y) AS (
 TABLE points;
 ```
 
-That's it! Our iterative function sytem iterates as expected, which we can verify by taking a look at the query result:
+That's it! Our iterative function system iterates as expected, which we can verify by taking a look at the query result:
 
 ```
 +-------+----------------------+---------------------+
@@ -302,7 +306,7 @@ That's it! Our iterative function sytem iterates as expected, which we can verif
 (10000 rows)
 ```
 
-This *looks* like it might be right, but how can we tell? I, for what it's worth, can't visualize this sequence of points in my mind, so let's visualize it!
+This *looks* like it might be right, but how can we tell? I, for what it's worth, can't picture this sequence of points in my mind, so let's visualize it!
 
 There's a plethora of tools[^drawingtools] we could feed this table into – but I think it's more fun to stay within the confines of SQL for now by generating a basic SVG image, which every web browser can display.
 
@@ -313,7 +317,7 @@ SVG, in case you're not familiar with it, [is](https://en.wikipedia.org/wiki/Sca
 
 > ...an [Extensible Markup Language](https://en.wikipedia.org/wiki/XML) (XML)-based vector image format for two-dimensional graphics with support for interactivity and animation.
 
-Interactivity and animation is cool, but for our purposes, only two[^doctype] of SVG's various tags are relevant:
+Interactivity and animation are cool, but for our purposes, only two[^doctype] of SVG's various tags are relevant:
 
 * The `<svg>` tag serves as the root element of the document, quite similar to HTML's `<html>` tag. Its `viewBox` attribute demarcates the visible portion of the internal coordinate system – its value can be interpreted as `left_edge bottom_edge width height`.
 
@@ -482,14 +486,14 @@ TABLE svg;
 
 
 [^postgres]: The implementation will be based on PostgreSQL's dialect of SQL, but it should work universally with minor modifications.
-[^rule90]: Personally, I'm quite fond of the fact that Stephen Wolfram's [Rule 90 cellular automaton](https://en.wikipedia.org/wiki/Sierpiński_triangle#Cellular_automata) takes the shape of Sierpiński's triangle, but how to simulate elementary cellular automata in SQL will be the focus of a future post.
+[^rule90]: Personally, I'm quite fond of the fact that Stephen Wolfram's [Rule 90 cellular automaton](https://en.wikipedia.org/wiki/Sierpiński_triangle#Cellular_automata) takes the shape of Sierpiński's triangle – how to simulate elementary cellular automata in SQL might be the focus of a future post.
 [^subplots]: This image has been generated by an adapted version of the query we're about to formulate. But if you prefer an animation, take a look at the [tweet that inspired me to write this post](https://twitter.com/CentrlPotential/status/1250172108811927552) or try out [this absolutely amazing interactive tool](https://andrew.wang-hoyer.com/experiments/chaos-game/).
-[^keepgoing]: We could keep going *ad infinitum*, of couse, but as is the case for all [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method)-esque processes, we'll soon hit a point of diminishing returns – besides, the SVG file is larger than 1 MB as it stands.
+[^keepgoing]: We could keep going *ad infinitum*, of course, but as is the case for all [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method)-esque processes, we'll soon hit a point of diminishing returns – besides, the SVG file is larger than 1 MB as it stands.
 [^toobasic]: In a "production" context, one wouldn't split this specific problem into quite as many separate queries, but it makes for a good example.
 [^oeis]: See [https://oeis.org/A037028](https://oeis.org/A037028).
-[^nodups]: Many kinds of recursive queries won't ever produce duplicates, so the choice of `UNION ALL` or `UNION` doesn't matter *semantically*. With an eye on *performance*, however, `UNION ALL` should be preferred in these situation as it avoids expensive sorting/hashing operations.
+[^nodups]: Many kinds of recursive queries won't ever produce duplicates, so in these cases, the choice of `UNION ALL` or `UNION` doesn't matter *semantically*. With an eye on *performance*, however, `UNION ALL` should be preferred here as it avoids expensive sorting/hashing operations.
 [^goodreason]: For [good reasons](https://stackoverflow.com/a/45045637).
-[^hardcode]: We could have hardcoded the anchor points within the query we're about to write, but keeping them in a table allows *you* to change them easily and observe what happens to the fractal as a result – this method can be used to generate all kinds of fractals depending on anchor point locations, rules constraining successive anchor point reuse, interpolation between current point and anchor point, and more!
+[^hardcode]: We could have hard-coded the anchor points within the query we're about to write, but keeping them in a table allows *you* to change them easily and observe what happens to the fractal as a result – this method can be used to generate all kinds of fractals depending on anchor point locations, rules constraining successive anchor point reuse, interpolation between current point and anchor point, and more!
 
     For example, populating `anchors` with the following data...
 
