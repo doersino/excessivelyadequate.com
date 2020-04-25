@@ -443,7 +443,7 @@ TABLE svg;
 
 ## Addendum: Evolution visualization
 
-In order to generate the "evolution" visualization shown at the bottom of the "Theory" section, I've adapted and parameterized the query detailed in this post. In case you're interested, the following code snippet replaces everything below the `-- let's-a go!` comment:
+In order to generate the "evolution" visualization shown at the bottom of the "Theory" section, I've adapted and parameterized the query detailed in this post to output a [small multiples chart](https://en.wikipedia.org/wiki/Small_multiple). In case you're interested, the following code snippet replaces everything below the `-- let's-a go!` comment:
 
 ```sql
 \set width 100
