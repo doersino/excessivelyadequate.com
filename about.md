@@ -13,7 +13,7 @@ I'll keep things short – this page serves three purposes:
 
 ## Colophon
 
-This [Jekyll](https://jekyllrb.com) blog was most recently updated on {{ site.time | date: '%B %-d, %Y' }}. It is hosted on [Uberspace](https://uberspace.de) and its source code is available on [GitHub](https://github.com/doersino/excessivelyadequate.com), where you can also find the [license](https://github.com/doersino/excessivelyadequate.com#license).
+This [Jekyll](https://jekyllrb.com) blog was most recently updated on {{ site.time | date: '%B %-d, %Y' }}. It is hosted on [Uberspace](https://uberspace.de) and its source code is available on [GitHub](https://github.com/doersino/excessivelyadequate.com), where you can also find the [license](https://github.com/doersino/excessivelyadequate.com#license). All of the coding was done in [Sublime Text](https://www.sublimetext.com) on [macOS](https://www.apple.com/macos/).
 
 *If you've come across an error in a post (even if it's only a typo), please let me know, preferably by [filing an issue](https://github.com/doersino/excessivelyadequate.com/issues/new) or [sending a pull request](https://github.com/doersino/excessivelyadequate.com) (in which case you'll be [listed as a contributor](https://github.com/doersino/excessivelyadequate.com/graphs/contributors)).*
 
