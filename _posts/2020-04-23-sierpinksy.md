@@ -86,7 +86,7 @@ squares(id, n) AS (
 ),
 sum(n) AS (
   SELECT sum(n)
-  FROM squares
+  FROM   squares
 )
 TABLE sum;
 ```
@@ -102,12 +102,12 @@ WITH RECURSIVE fac(n, res) AS (
     UNION ALL
 
   SELECT n - 1, res * n
-  FROM fac
-  WHERE n > 1
+  FROM   fac
+  WHERE  n > 1
 )
 SELECT res
-FROM fac
-WHERE n = 1;
+FROM   fac
+WHERE  n = 1;
 ```
 
 A recursive CTE must be [composed of three parts](https://www.postgresql.org/docs/12/queries-with.html#id-1.5.6.12.5.4), each with their own semantics:
