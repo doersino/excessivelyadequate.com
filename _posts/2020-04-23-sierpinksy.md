@@ -26,7 +26,7 @@ The *Sierpiński triangle*, which you've already seen above, is a self-similar f
 
 There you go.
 
-Just kidding – that sentence makes no sense to me because I'm bad at math, and I hope you're not offended if I proceed under the assumption that you're not much better at it. *Informally*, an iterated function system (IFS) is a *set of functions that can be applied to each other's outputs in any order and as many times as you like*, with the results ending up distributed in a hopefully-interesting manner.
+Just kidding – that sentence makes no sense to me because I'm bad at math, and I hope you won't be offended if I proceed under the assumption that you're not much better at it. *Informally*, an iterated function system (IFS) is a *set of functions that can be applied to each other's outputs in any order and as many times as you like*, with the results ending up distributed in a hopefully-interesting manner.
 
 Wikipedia goes on to outline the particular application of IFS we'll be performing:
 
