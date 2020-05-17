@@ -1,6 +1,6 @@
 # excessivelyadequate.com
 
-My blog, [excessivelyadequate.com](https://excessivelyadequate.com).
+My blog, [excessivelyadequate.com](https://excessivelyadequate.com), formerly knows as [hejnoah.com](https://github.com/doersino/hejnoah.com).
 
 *If you've come across an error in a post (even if it's only a typo), please let me know, preferably by [filing an issue](https://github.com/doersino/excessivelyadequate.com/issues/new) or [sending a pull request](https://github.com/doersino/excessivelyadequate.com) (in which case you'll be [listed as a contributor](https://github.com/doersino/excessivelyadequate.com/graphs/contributors)).*
 
