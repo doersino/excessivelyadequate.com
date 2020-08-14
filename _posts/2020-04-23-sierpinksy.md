@@ -254,7 +254,7 @@ WITH RECURSIVE points(id, x, y) AS (
 TABLE points;
 ```
 
-That's it! Our iterative function system iterates as expected, which we can verify by taking a look at the query result:
+That's it! Our iterative function system iterates as expected, which we can try to verify by taking a look at the query result:
 
 ```
 +-------+----------------------+---------------------+
