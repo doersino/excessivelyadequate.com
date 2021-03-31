@@ -125,6 +125,9 @@ h3 {
     margin: 1rem 0;
     list-style-type: none;
 }
+.archive li:before {
+    display: none;
+}
 .archive span {
     color: var(--color-meta);
     display: inline-block;
@@ -204,10 +207,21 @@ article ul > li:before, section ul > li:before {
     text-indent: -1.5em;
     position: absolute;
 }
+article ol, section ol {
+    counter-reset: numberedlist;  /* manual counter to circumvent different margin/padding behavior among browsers when using list-style-type: decimal;, needs to be overridden for footnotes and the index page */
+}
 article ol > li, section ol > li {
-    list-style-type: decimal;
-    margin: 1rem 0 1rem 1.1em;  /* this isn't enough margin for two digits, but i don't think that'll be relevant */
-    padding-left: 0.4em;  /* match bullet-content-distance of unordered lists */
+    list-style-type: none;
+    counter-increment: numberedlist;
+    margin: 1rem 0 1rem 1.5em;  /* this isn't enough margin for two digits, but i don't think that'll be relevant */
+}
+article ol > li:before, section ol > li:before {
+    content: counter(numberedlist) ".";
+    text-indent: -1.5em;
+    position: absolute;
+}
+*:not(ol li) {
+    counter-reset: numberedlist;  /* workaround for a bug (?) in firefox where the footnote numbering, despite not using the counter, would start at the number of previous <li>s (no matter whethre in ul or ol) in the document. in my mental model, this workaround should actually break ordered lists, but it doesn't – seems very fragile, anyway! */
 }
 
 /* wider-than-normal elements and ones that can carry captions */
@@ -269,9 +283,13 @@ a.footnote, a.reversefootnote {
     margin-top: 4rem;
 }
 .footnotes ol > li {
+    list-style-type: decimal;
     font-family: var(--font-meta);
     list-style-position: inside;
     margin-left: 0;
+}
+.footnotes ol > li:before {
+    display: none;
 }
 .footnotes ol > li p:first-child {
     display: inline;  /* fix for chrome and firefox not merging list number into footnote text when list-style-position: inside; is set*/
