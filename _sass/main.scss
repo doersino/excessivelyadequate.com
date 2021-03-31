@@ -195,12 +195,19 @@ kbd {
 
 /* lists */
 article ul > li, section ul > li {
-    list-style-type: square;
-    margin: 1rem 0 1rem 2em;
+    list-style-type: none;
+    text-indent: 0;
+    margin: 1rem 0 1rem 1.5em;
+}
+article ul > li:before, section ul > li:before {
+    content: "—";
+    text-indent: -1.5em;
+    position: absolute;
 }
 article ol > li, section ol > li {
     list-style-type: decimal;
-    margin: 1rem 0 1rem 2em;
+    margin: 1rem 0 1rem 1.1em;  /* this isn't enough margin for two digits, but i don't think that'll be relevant */
+    padding-left: 0.4em;  /* match bullet-content-distance of unordered lists */
 }
 
 /* wider-than-normal elements and ones that can carry captions */
