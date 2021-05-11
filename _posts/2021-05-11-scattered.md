@@ -134,9 +134,9 @@ In my use case, there were a few pages – the title page, the table of contents
 
 (When editing `scattered.html` to add these `z` attributes, note that any number larger than 100 will push the page to the top since the JavaScript snippet generates values between 0 and 100 for all pages without an explicit `z` attribute.)
 
-At the same time, I thought that fading pages towards gray the further in the back they are located might add some visual interest. To this end, I came up with the absolutely-not-based-in-any-solid-theory formula
+At the same time, I thought that fading pages towards gray the further in the back they are located might add some visual interest. To this end, I came up with the absolutely-not-based-on-any-solid-theory formula
 
-$$100 - \sqrt{100 - \min(100, z)}.$$
+$$💡 = 100 - \sqrt{100 - \min(100, z)}.$$
 
 To incorporate these changes, replace the JavaScript snippet above with this upgraded variant:
 
