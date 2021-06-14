@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "Drawing the Sierpiński Triangle with Recursive SQL and SVG"
+title:        "Drawing the Sierpiński Triangle With Recursive SQL and SVG"
 date:         2020-04-23 10:00:00 +0200
 tags:         advancedsql
 ---
