@@ -342,3 +342,22 @@ a.footnote, a.reversefootnote {
         font-size: 20px;
     }
 }
+
+/* generate prettier pdfs */
+@media print {
+    body {
+        background: none !important;
+    }
+    main {
+        max-width: 34em;
+        padding: 1em 1em 1px;
+    }
+    main > header, pre, .wide img {
+        width: 100%;
+        margin-left: 0;
+    }
+    main > header, code, pre {
+        -webkit-print-color-adjust: exact;  /* Chrome/Safari/Edge/Opera */
+                      color-adjust: exact;  /* Firefox */
+    }
+}
