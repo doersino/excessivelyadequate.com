@@ -75,6 +75,7 @@ To transform `scatter.html` into something resembling the picture at the top of 
     img {
         display: inline-block;
         position: absolute;
+        background-color: white;
         box-shadow: 0 0 5px #0005;
     }
 </style>
@@ -84,6 +85,7 @@ What's going on here?
 
 * The `body`'s `margin` more than accounts for the additional space taken up by the pages once they're rotated slightly. Its light gray `background-color` induces a modicum of contrast against the white background of the pages.
 * The `display` and `position` properties set for all `<img>` tags are required for the positioning and rotation work that's coming up after this list.
+* Since PDF pages can have transparent backgrounds, a neutral `background-color` makes sure everything's opaque (notably, PDFs created using [Chrome's built-in print functionality]({{ "/posts/print.html" | relative_url }}) feature transparent margins).
 * Finally, the `box-shadow: 0 0 5px #0005;` part gives the images/pages a bit of a drop shadow. Even if you're familiar with CSS colors, the notation `#0005` might strike you as slightly unusual – it means `#000` (red, green, and blue each set to zero, *i.e.*, black) with `5` fifteenths (so, a third) of opacity. A semi-transparent gray, then.
 
 This general styling must now be supplemented with more *specific* styling *for each image* where its position, rotation, and `z-index` is set. The integer-valued `z-index` property determines the drawing order – elements with larger values will show up in front. We'll be setting it randomly to disable the browser's default behavior where elements defined later (*i.e.*, the last few pages) render in front.
