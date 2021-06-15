@@ -91,16 +91,16 @@ Now `git add .`, `git commit ...`, and `git push`.
 For running Jekyll locally, first install Bundler (which should work just fine with the system-provided Ruby – should this change, just get a more up-to-date Ruby distribution from Homebrew):
 
 ```
-sudo gem install bundler
+gem install --user-install bundler
 ```
 
-Then define the following aliases in your `~/.bashrc` and use them from now on (note that the environment variable `JEKYLL_NO_BUNDLER_REQUIRE=true` must be set on my system in order to run Jekyll for some reason, I've got no idea why – but I know it shouldn't be this way and it wasn't this way before):
+Then define the following aliases in your `~/.bashrc` and use them from now on:
 
 ```
-alias jekyllinstall='bundle config set --local path "vendor/bundle"; bundle install'
-alias jekyllreinstall='rm Gemfile.lock; bundle config set --local path "vendor/bundle"; bundle install'
-alias jekyllserve='JEKYLL_NO_BUNDLER_REQUIRE=true bundle exec jekyll serve'
-alias jekyllservei='JEKYLL_NO_BUNDLER_REQUIRE=true bundle exec jekyll serve --incremental'
+alias jekyllinstall='bundle install'
+alias jekyllreinstall='rm Gemfile.lock; bundle install'  # make sure to commit the new Gemfile.lock afterwards
+alias jekyllserve='bundle exec jekyll serve'
+alias jekyllservei='bundle exec jekyll serve --incremental'
 ```
 
 Finally, run `jekyllinstall` and `jekyllserve`.
