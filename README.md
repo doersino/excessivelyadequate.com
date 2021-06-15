@@ -97,8 +97,8 @@ gem install --user-install bundler
 Then define the following aliases in your `~/.bashrc` and use them from now on:
 
 ```
-alias jekyllinstall='bundle install'
-alias jekyllreinstall='rm Gemfile.lock; bundle install'  # make sure to commit the new Gemfile.lock afterwards
+alias jekyllinstall='bundle install'  # as of recent versions, installs in ./vendor by default
+alias jekyllreinstall='rm Gemfile.lock; bundle install; bundle lock --add-platform ruby'  # make sure to commit the new Gemfile.lock afterwards
 alias jekyllserve='bundle exec jekyll serve'
 alias jekyllservei='bundle exec jekyll serve --incremental'
 ```
