@@ -239,20 +239,18 @@ img {
     margin-left: -4rem;
 }
 .double img:nth-child(2n) {
-    margin-left: 0.4rem;  /* roughly matches line-height left over below images, enabling 2x2 images in .double */
+    margin-left: 0.4rem;  /* roughly matches line-height left over below images, enabling 2x2 (or 2xN) images in .double */
     margin-right: -4rem;
 }
-.triple img {
+.left img {
     max-width: none;
-    width: calc(33.3333% + 2.6667rem - 0.3333rem);
-}
-.triple img:first-child {
-    margin-right: 0.5rem;
+    width: calc(66% + 4rem);
     margin-left: -4rem;
 }
-.triple img:last-child {
-    margin-left: 0.5rem;
-    margin-right: -4rem;
+.right img {
+    max-width: none;
+    width: calc(66% + 4rem);
+    margin-left: 34%;
 }
 pre {
     max-width: none;
@@ -342,17 +340,16 @@ a.footnote, a.reversefootnote {
         width: calc(50vw - 0.2rem);
         margin-left: calc(-0.5 * (100vw - 100%));
     }
-    .double img:last-child {
+    .double img:nth-child(2n) {
         margin-right: calc(-0.5 * (100vw - 100%));
     }
-    .triple img {
-        width: calc(33.3333vw - 0.3333rem);
-    }
-    .triple img:first-child {
+    .left img {
+        width: 66vw;
         margin-left: calc(-0.5 * (100vw - 100%));
     }
-    .triple img:last-child {
-        margin-right: calc(-0.5 * (100vw - 100%));
+    .right img {
+        width: 66vw;
+        margin-left: calc(-0.5 * (100vw - 100%) + 34vw);
     }
 }
 
@@ -371,7 +368,7 @@ a.footnote, a.reversefootnote {
         width: calc(100% + 2rem);
         margin-left: -1rem;
     }
-    /* doesn't seem like rules for .double/.triple is needed here, at least in my testing (then why is one required for .wide?) */
+    /* doesn't seem like rules for .double is needed here, at least in my testing (then why is one required for .wide?) */
 }
 
 /* increase base font size on large screens */
