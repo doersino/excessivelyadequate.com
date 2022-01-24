@@ -238,7 +238,8 @@ img {
     width: calc(50% + 4rem - 0.2rem);
     margin-left: -4rem;
 }
-.double img:nth-child(2n) {
+.double img:nth-child(2n),
+.double a:nth-child(2n) img {
     margin-left: 0.4rem;  /* roughly matches line-height left over below images, enabling 2x2 (or 2xN) images in .double */
     margin-right: -4rem;
 }
@@ -340,7 +341,8 @@ a.footnote, a.reversefootnote {
         width: calc(50vw - 0.2rem);
         margin-left: calc(-0.5 * (100vw - 100%));
     }
-    .double img:nth-child(2n) {
+    .double img:nth-child(2n),
+    .double a:nth-child(2n) img {
         margin-right: calc(-0.5 * (100vw - 100%));
     }
     .left img {
