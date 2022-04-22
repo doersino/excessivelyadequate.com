@@ -75,6 +75,18 @@ main > header h6 {
     box-shadow: -1px 0 0 var(--color-logo-background-sides);
     margin-left: 1px;
 }
+main > header h6:hover {
+    text-shadow: 1px 0 0 var(--color-logo-text-shine), -2px -1px 0 var(--color-logo-text-sides), 0.05em 0.16em var(--color-logo-background);
+    animation: hue 10s linear infinite;
+}
+@keyframes hue {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
 
 /* articles */
 article, section {
