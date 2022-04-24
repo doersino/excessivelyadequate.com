@@ -119,14 +119,13 @@ h1 {
 h2, .archive span {
     font-size: 1.2rem;
 }
-h1, h2 {
+h1, h2, h3 {
     margin: 2rem 0 1rem;
 }
 h3 {
     color: var(--color-meta);
     font-size: 0.8em;
     text-transform: uppercase;
-    margin: 1rem 0;
 }
 
 /* lists of posts */
