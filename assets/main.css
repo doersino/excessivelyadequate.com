@@ -1,5 +1,3 @@
-@import "code.scss";
-
 /* variables (could totally use sass variables, but why bother) */
 :root {
     --color-text: #222;

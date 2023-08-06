@@ -71,6 +71,12 @@ Note thate Ruby and the `bundle` command work out of the box on Uberspace, that'
 
 #### Laptop
 
+Install ruby from Homebrew since the version shipping with macOS is too old and adjust the `PATH` in your `.bashrc` as explained in the build caveats:
+
+```
+brew install ruby
+```
+
 Clone the repository:
 
 ```
@@ -91,7 +97,7 @@ Now `git add .`, `git commit ...`, and `git push`.
 For running Jekyll locally, first install Bundler (which should work just fine with the system-provided Ruby – should this change, just get a more up-to-date Ruby distribution from Homebrew):
 
 ```
-gem install --user-install bundler
+gem install --user-install bundler  # this might not be required if installing from Homebrew, run which bundler to check if it's already installed as part of Homebrew's Ruby distribution
 ```
 
 Then define the following aliases in your `~/.bashrc` and use them from now on:
