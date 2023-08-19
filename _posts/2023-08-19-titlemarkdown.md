@@ -28,4 +28,4 @@ Depending on your site's architecture, you'll need to change stuff in multiple p
 
 {% endraw  %}
 
-[^escape]: The `| escape` bit converts certain characters into HTML entities – imagine a post clickbaitily titled "5 reasons to use &lt;em&gt; instead of &lt;i&gt;!"
+[^escape]: The `| escape` bit converts certain characters into HTML entities – imagine a post clickbaitily titled "5 reasons to use &lt;em&gt; instead of &lt;i&gt;!"; it'd render as "5 reasons to use *instead of!*"
