@@ -126,7 +126,7 @@ The software in this repository (i.e. everything *outside* of `_posts` and `stat
 
 ### Libraries
 
-[KaTeX](https://katex.org) is used for rendering math, its license can be found in its directory in `assets/`.
+[KaTeX](https://katex.org) is used for rendering math, its license can be found in its directory in `assets/`. As of August 2023, it's used server-side only as described [here](https://www.xuningyang.com/blog/2021-01-11-katex-with-jekyll/).
 
 ### Webfonts
 
