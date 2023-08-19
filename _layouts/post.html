@@ -3,7 +3,7 @@ layout: default
 ---
 <article>
     <header>
-        <h1>{{ page.title | escape }}</h1>
+        <h1>{{ page.title | escape | markdownify | remove: '<p>' | remove: '</p>' }}</h1>
         <aside>
             <time id="postedon" datetime="{{ page.date | date_to_xmlschema }}">Posted <span id="postedago"></span> on {{ page.date | date: "%B %-d, %Y" }}</time>
             ·
