@@ -32,3 +32,6 @@ exclude:
   - Gemfile.lock
   - vendor
   - README.md
+
+kramdown:
+  math_engine: katex
