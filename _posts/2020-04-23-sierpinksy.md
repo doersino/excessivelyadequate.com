@@ -13,7 +13,7 @@ In this post, I'll present a surprisingly simple recursive CTE[^postgres] that i
 {:.center}
 ![]({{ "/static/sierpinsky.svg" | relative_url }})
 
-*This post is loosely based on what I learned in the [Advanced SQL lecture held by Torsten Grust in the summer of 2017](http://db.inf.uni-tuebingen.de/teaching/AdvancedSQLSS2017.html) at the University of Tübingen. Take a look at the [lecture slides](http://db.inf.uni-tuebingen.de/teaching/AdvancedSQLSS2017.html) for in-depth explanations and a wide array of examples.*
+*This post is loosely based on what I learned in the [Advanced SQL lecture held by Torsten Grust in the summer of 2017](https://db.cs.uni-tuebingen.de/teaching/archive/ss17/advanced-sql/) at the University of Tübingen. Take a look at the [lecture slides](https://db.cs.uni-tuebingen.de/teaching/archive/ss17/advanced-sql/) for in-depth explanations and a wide array of examples.*
 
 
 ## Theory
