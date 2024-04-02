@@ -16,7 +16,7 @@ In case you're a bit impatient: Instead of embedding the finished result here, w
 First off, we need to write a few lines of HTML to set up a page with a black background and a `<canvas>` element that we can then smear virtual paint all over.
 
 ```html
-<body style="margin: 0; background: black;">
+<body style="margin: 0; background: black; height: 100%;">
     <canvas id="starfield"></canvas>
     <script>
         // further code snippets go here
