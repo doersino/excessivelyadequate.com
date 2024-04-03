@@ -10,11 +10,10 @@
     --color-main-background: white;
     --color-code-background: #e8e8e8;
 
-    --color-logo-text: var(--color-accent);
+    --color-logo-text: #d9d9d9;
     --color-logo-text-shine: white;
-    --color-logo-text-sides: #b8b8b8;
-    --color-logo-background: #eee;
-    --color-logo-background-sides: #ddd;
+    --color-logo-text-sides: #bbb;
+    --color-logo-shadow: #f3f3f3;
 
     --font-text: 'IBM Plex Serif', serif;
     --font-meta: 'Work Sans', sans-serif;
@@ -61,21 +60,27 @@ main > header h6 {
     width: 5em;
     text-transform: uppercase;
     font-weight: 800;
-    line-height: 0.75em;
+    line-height: 0.76em;
     color: var(--color-logo-text);
     letter-spacing: -0.02em;
-    text-shadow: 1px 0 0 var(--color-logo-text-shine), -2px -1px 0 var(--color-logo-text-sides), 0.05em 0.08em var(--color-logo-background);
+    text-shadow:
+        1px 0 0 var(--color-logo-text-shine),
+        -2px -1px 0 var(--color-logo-text-sides),
+        -1px -.5px 0 var(--color-logo-text-sides),
+        0.05em 0.08em var(--color-logo-shadow);
     transform: perspective(5em) rotateY(20deg);
     transform-origin: top left;
     display: inline-block;
-    padding: 0.2em;
-    background-color: var(--color-logo-background);
-    box-shadow: -1px 0 0 var(--color-logo-background-sides);
-    margin-left: 1px;
 }
 main > header h6:hover {
-    text-shadow: 1px 0 0 var(--color-logo-text-shine), -2px -1px 0 var(--color-logo-text-sides), 0.05em 0.16em var(--color-logo-background);
-    animation: hue 10s linear infinite;
+    text-shadow:
+        1px 0 0 var(--color-logo-text-shine),
+        -2px -1px 0 var(--color-logo-text-sides),
+        -1px -.5px 0 var(--color-logo-text-sides),
+        0.04em 0.10em var(--color-logo-shadow);
+    transform: perspective(5.3em) rotateY(20deg);
+    animation: hue 30s linear infinite;
+    transition: 1s;
 }
 @keyframes hue {
     from {
