@@ -11,9 +11,7 @@
     --color-code-background: #e8e8e8;
 
     --color-logo-text: #d9d9d9;
-    --color-logo-text-shine: white;
-    --color-logo-text-sides: #bbb;
-    --color-logo-shadow: #f3f3f3;
+    --color-logo-hover: var(--color-link-hover);
 
     --font-text: 'IBM Plex Serif', serif;
     --font-meta: 'Work Sans', sans-serif;
@@ -43,7 +41,7 @@ body {
 }
 main {
     max-width: 40em;
-    padding: 1em 4em 1px;
+    padding: 2.5em 4em 1px;
     margin: auto;
     background-color: var(--color-main-background);
     min-height: 100%;
@@ -51,44 +49,14 @@ main {
 
 /* page header */
 main > header {
-    width: calc(100% + 6rem);
-    margin-left: -3rem;
+    width: calc(100% + 12rem);
+    margin-left: -6rem;
 }
-main > header h6 {
-    font-family: var(--font-meta);
-    font-size: 5em;
-    width: 5em;
-    text-transform: uppercase;
-    font-weight: 800;
-    line-height: 0.76em;
-    color: var(--color-logo-text);
-    letter-spacing: -0.02em;
-    text-shadow:
-        1px 0 0 var(--color-logo-text-shine),
-        -2px -1px 0 var(--color-logo-text-sides),
-        -1px -.5px 0 var(--color-logo-text-sides),
-        0.05em 0.08em var(--color-logo-shadow);
-    transform: perspective(5em) rotateY(20deg);
-    transform-origin: top left;
-    display: inline-block;
+main > header svg {
+    fill: var(--color-logo-text);
 }
-main > header h6:hover {
-    text-shadow:
-        1px 0 0 var(--color-logo-text-shine),
-        -2px -1px 0 var(--color-logo-text-sides),
-        -1px -.5px 0 var(--color-logo-text-sides),
-        0.04em 0.10em var(--color-logo-shadow);
-    transform: perspective(5.3em) rotateY(20deg);
-    animation: hue 30s linear infinite;
-    transition: 1s;
-}
-@keyframes hue {
-    from {
-        filter: hue-rotate(0deg);
-    }
-    to {
-        filter: hue-rotate(360deg);
-    }
+main > header a:hover svg {
+    fill: var(--color-logo-hover);
 }
 
 /* articles */
@@ -343,6 +311,9 @@ a.footnote, a.reversefootnote {
         max-width: 34em;
         padding: 1em 1em 1px;
     }
+    article, section {
+        margin: 2em 0;
+    }
     main > header, pre {
         width: calc(100vw - 2em);
         margin-left: calc(-0.5 * (100vw - 100%) + 1em);
@@ -371,9 +342,6 @@ a.footnote, a.reversefootnote {
 
 /* make logo smaller on tiny screens */
 @media screen and (max-width: calc(34 * 18px)) {  /* calc( * 18px) cause rem doesn't work here */
-    article, section {
-        margin: 2em 0;
-    }
     main > header h6 {
         font-size: 3.5em;
     }
