@@ -8,7 +8,7 @@ Do you remember the old [Starfield screensaver](https://www.youtube.com/watch?v=
 
 Today, let's reimplement it (or something close to it, at least) in a couple dozen lines of vanilla JavaScript!
 
-In case you're a bit impatient: Instead of embedding the finished result here, which would invariably break as soon as I change the post layout even a little bit, I've uploaded a [full-screen demo ready for your enjoyment]({{ "/static/starfield.html" | relative_url }})[^websaver].
+In case you're a bit impatient: Instead of embedding the finished result here, which would invariably break as soon as I change the post layout even a little bit, I've uploaded a [full-screen demo ready for your enjoyment]({% link /static/starfield.html %})[^websaver].
 
 
 ## Implementation
@@ -158,7 +158,7 @@ if (x < -100 || x > w + 100 || y < -100 || y > h + 100) {
 }
 ```
 
-That's all there is to it, really! Once again, you can [see a demo over here]({{ "/static/starfield.html" | relative_url }}).
+That's all there is to it, really! Once again, you can [see a demo over here]({% link /static/starfield.html %}).
 
 
 ## Notes

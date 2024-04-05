@@ -32,7 +32,7 @@ Now, this could in theory continue for a couple of years without either my phone
 Shortcuts makes this filtering step incredibly easy, and it works surprisingly well – much better than other components of this photo purge process, as I'll relay in a minute. Here's the shortcut in all of its two-step-plus-a-stern-warning glory:
 
 {:.center}
-![]({{ "/static/nukephotos.jpg" | relative_url }})
+![]({% link /static/nukephotos.jpg %})
 
 {:.caption}
 The appropriately named shortcut. That's on iOS 12, by the way – it's possible that this'll work differently in future versions.

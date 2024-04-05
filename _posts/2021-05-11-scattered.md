@@ -11,7 +11,7 @@ To illustrate the `README.md` of my [Markdeep](https://casual-effects.com/markde
 In my mind, a basic grid of thumbnails wouldn't cut it since most pages aren't very unique from a *layout* point of view. Neither would a few larger thumbnails of select pages as barely any of the pages are interesting from a *content* point of view. I settled on generating a "scatter plot" with most pages in the background, partially obscured, and some interesting ones out in front:
 
 {:.wide}
-![]({{ "/static/scattered-final.png" | relative_url }})
+![]({% link /static/scattered-final.png%})
 
 The rest of this article walks you through the workflow I came up with to generate this image.
 
@@ -57,7 +57,7 @@ ls -1 | grep "thesis-page-" | sed 's/^\(.*\)$/<img src="\1">/' > scattered.html
 If you now open `scattered.html` in the browser of your choice, you'll be presented with a grid view of your pages – if that's what you're after, you can stop here (although you might wish to visually set the individual pages apart using borders and margins).
 
 {:.wide}
-![]({{ "/static/scattered-grid.png" | relative_url }})
+![]({% link /static/scattered-grid.png%})
 
 This is actually a semi-useful [contact print](https://en.wikipedia.org/wiki/Contact_print) of your PDF.
 
@@ -85,7 +85,7 @@ What's going on here?
 
 * The `body`'s `margin` more than accounts for the additional space taken up by the pages once they're rotated slightly. Its light gray `background-color` induces a modicum of contrast against the white background of the pages.
 * The `display` and `position` properties set for all `<img>` tags are required for the positioning and rotation work that's coming up after this list.
-* Since PDF pages can have transparent backgrounds, a neutral `background-color` makes sure everything's opaque (notably, PDFs created using [Chrome's built-in print functionality]({{ "/posts/print.html" | relative_url }}) feature transparent margins).
+* Since PDF pages can have transparent backgrounds, a neutral `background-color` makes sure everything's opaque (notably, PDFs created using [Chrome's built-in print functionality]({% post_url 2021-03-31-print %}) feature transparent margins).
 * Finally, the `box-shadow: 0 0 5px #0005;` part gives the images/pages a bit of a drop shadow. Even if you're familiar with CSS colors, the notation `#0005` might strike you as slightly unusual – it means `#000` (red, green, and blue each set to zero, *i.e.*, black) with `5` fifteenths (so, a third) of opacity. A semi-transparent gray, then.
 
 This general styling must now be supplemented with more *specific* styling *for each image* where its position, rotation, and `z-index` is set. The integer-valued `z-index` property determines the drawing order – elements with larger values will show up in front. We'll be setting it randomly to disable the browser's default behavior where elements defined later (*i.e.*, the last few pages) render in front.
@@ -123,7 +123,7 @@ cat "prettify.html" >> "scattered.html"
 Open `scattered.html` in your browser again. Things should look a bit more exciting now! You might need to scale down the page (via <kbd>⌘</kbd><kbd>-</kbd> or <kbd>ctrl</kbd><kbd>-</kbd> depending on your OS) to get everything visible at once, then keep refreshing until you get a pleasing arrangement.
 
 {:.wide}
-![]({{ "/static/scattered-basic.png" | relative_url }})
+![]({% link /static/scattered-basic.png%})
 
 Once you're satisfied, take a screenshot and chop off your browser's window chrome in any image editor.
 

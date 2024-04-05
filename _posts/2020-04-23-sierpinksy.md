@@ -11,7 +11,7 @@ The standard way of interfacing with Postgres is SQL -- you know, that thing you
 In this post, I'll present a surprisingly simple recursive CTE[^postgres] that implements an [iterated function system](https://en.wikipedia.org/wiki/Iterated_function_system) for generating a variant of the [Sierpiński triangle](https://en.wikipedia.org/wiki/Sierpiński_triangle), along with a basic SVG code generation routine for visualization purposes. The end result will look like this:
 
 {:.center}
-![]({{ "/static/sierpinsky.svg" | relative_url }})
+![]({% link /static/sierpinsky.svg %})
 
 *This post is loosely based on what I learned in the [Advanced SQL lecture held by Torsten Grust in the summer of 2017](https://db.cs.uni-tuebingen.de/teaching/archive/ss17/advanced-sql/) at the University of Tübingen. Take a look at the [lecture slides](https://db.cs.uni-tuebingen.de/teaching/archive/ss17/advanced-sql/) for in-depth explanations and a wide array of examples.*
 
@@ -55,7 +55,7 @@ Now! If we start out with $$P = (0.5, 0.5)$$, feed it into one of the three func
 You can observe this in the following[^subplots] image – each subplot, from top left to bottom right, advances[^keepgoing] the process by 10 iterations.
 
 {:.center}
-![]({{ "/static/sierpinsky_process.svg" | relative_url }})
+![]({% link /static/sierpinsky_process.svg %})
 
 
 ## Recursive CTEs
@@ -385,7 +385,7 @@ That's actually not *quite* enough. We need to execute a few more configuration 
 ...to disable various aspects of the default output format. But once that's done, we can lean back and bask in the glory of what we've achieved with just a few lines of SQL:
 
 {:.center}
-![]({{ "/static/sierpinsky.svg" | relative_url }})
+![]({% link /static/sierpinsky.svg %})
 
 And in case you haven't been coding along, the finished `sierpinsky.sql` looks just about like this:
 
