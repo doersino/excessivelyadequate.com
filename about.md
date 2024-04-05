@@ -7,7 +7,7 @@ permalink: /about.html
 I'll keep things short – this page serves three purposes:
 
 1. Redirecting you to **my main website, [noahdoersing.com](https://noahdoersing.com)**, in case you want to yell at me or offer me a job.
-2. Satisfying any lawyers that might be lurking in the depths of whatever lawyers lurk in. If you're one of them, here's a [link to my Datenschutzerklärung](https://noahdoersing.com/datenschutz.html).<br>(Summary for non-lawyers: No cookies, no analytics, no server logs, no external resources, and no other ways for you to give me any of your personal information via this website.)
+2. Satisfying any lawyers that might be lurking in the depths of whatever lawyers lurk in. If you're one of them, here's a [link to my Datenschutzerklärung](https://noahdoersing.com/datenschutz.html). *(Summary for non-lawyers: No cookies, no analytics, no server logs, no external resources, and – as far as I can tell – no other ways for you to surrender any of your personal information.)*
 3. And this:
 
 
