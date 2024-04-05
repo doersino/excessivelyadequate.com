@@ -127,7 +127,7 @@ This is the last isomorphism we'll fully implement, and it's an interesting one:
 However, when you think of this isomorphism in visual terms, it will quickly make sense to you:
 
 {:.center}
-![]({% link /static/itot1.svg %})
+![]({% link /static/isomorphisms-itot1.svg %})
 
 Given a two-dimensional coordinate system, we can enumerate its $$(x,y)$$ coordinates (corresponding to our `(Integer,Integer)` type) by going in a spiral from the center successively outwards, yielding natural numbers (as long as we don't get too dizzy to keep on track). If this mapping function is invertible, all that's left to do is to chain it together with our `iton` and `ntoi` functions, and we've got our isomorphism.
 
@@ -150,7 +150,7 @@ ttoi (x,y) = ntoi $ ((x' + y') * (x' + y' + 1)) `div` 2 + y'
 To make sure that this really works, I've taken to [plot.ly/create/](https://plot.ly/create/#/) where I've quickly-and-dirtily plotted the tuple representations, according to the implementation above, of the first 100 positive integers (in blue) and the first 100 negative integers (in orange).
 
 {:.wide}
-![]({% link /static/itot2.png %})
+![]({% link /static/isomorphisms-itot2.png %})
 
 Even though the lines connecting the $$(x,y)$$ coordinate pairs are looking a bit broken up in some places because of how the math works out, you can clearly see the spiral pattern – larger integers are further from the origin and there aren't any gaps.
 
