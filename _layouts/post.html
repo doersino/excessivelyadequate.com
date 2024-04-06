@@ -8,7 +8,6 @@ layout: default
             <time id="postedon" datetime="{{ page.date | date_to_xmlschema }}">Posted <span id="postedago"></span> on {{ page.date | date: "%B %-d, %Y" }}</time>
             ·
             <span class="ert">
-                <abbr title="Estimated reading time">ERT</abbr>
                 {% assign words_total = page.content | replace: '<script type="math/tex">', '' | replace: '<script type="math/tex; mode=display">', '' | replace: '</script>', '' | strip_html | number_of_words %}
                 {% assign words_without_code = page.content | replace: '<pre class="highlight">', '<!--' | replace: '</pre>', '-->' | replace: '<script type="math/tex">', '' | replace: '<script type="math/tex; mode=display">', '' | replace: '</script>', '' | strip_html | number_of_words %}
                 {% assign words_without_math = page.content | strip_html | number_of_words %}
@@ -17,9 +16,10 @@ layout: default
                 {% assign words_code = words_total | minus: words_without_code | divided_by: 2.0 %}
                 {% assign words_math = words_total | minus: words_without_math | times: 2.0 %}
                 {% assign words = words_without_either | plus: words_code | plus: words_math | round %}
-
+                {{words}}<a href="{% post_url 2020-04-21-ert %}">ish</a> words
+                ·
                 {% assign ert = words | divided_by:250 | at_least: 1 %}
-                {{ ert }} minute{% if ert != 1 %}s{% endif %} <!--({{words}} word-equivalents)-->
+                {{ ert }} minute read
             </span>
         </aside>
         <script>
