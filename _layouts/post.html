@@ -18,7 +18,7 @@ layout: default
                 {% assign words = words_without_either | plus: words_code | plus: words_math | round %}
                 {{words}}<a href="{% post_url 2020-04-21-ert %}">ish</a> words
                 ·
-                {% assign ert = words | divided_by:250 | at_least: 1 %}
+                {% assign ert = words | plus:125 | divided_by:250 | at_least: 1 %}
                 {{ ert }} minute read
             </span>
         </aside>
