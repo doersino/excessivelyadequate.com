@@ -138,4 +138,4 @@ All webfonts (i.e. everything located in `assets/fonts/`) are licensed under the
 
 * Work Sans has been downloaded from [its GitHub repository](https://github.com/weiweihuanghuang/Work-Sans) at commit `28b121c`.
 * Iosevka has been downloaded from [the releases section of its GitHub repository](https://github.com/be5invis/Iosevka/releases), namely `01-iosevka-2.3.3.zip`.
-* IBM Plex Serif has been grabbed from [the releases section of its GitHub repository](https://github.com/IBM/plex/releases), namely `Web.zip` of release "v4.0.2".
+* Literata has been grabbed from [the releases section of its GitHub repository](https://github.com/googlefonts/literata/releases/), namely `3.103.zip` of release "3.103".

@@ -13,7 +13,7 @@
     --color-logo-text: #d9d9d9;
     --color-logo-hover: var(--color-link-hover);
 
-    --font-text: 'IBM Plex Serif', serif;
+    --font-text: 'Literata', serif;
     --font-meta: 'Work Sans', sans-serif;
     --font-code: 'Iosevka', monospace;
 }
@@ -125,9 +125,10 @@ h3 {
 /* intra-article elements */
 p {
     margin: 1em 0;
+    font-weight: 360;
 }
 strong {
-    font-weight: bold;
+    font-weight: 640;
 }
 hr {
     border: 0;
@@ -176,7 +177,7 @@ pre {
     margin-bottom: 1rem;
 }
 code:hover, pre:hover {
-    text-rendering: optimizeSpeed;
+    text-rendering: optimizeSpeed;  /* disable ligatures */
     font-variant-ligatures: none;
 }
 kbd {
