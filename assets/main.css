@@ -201,7 +201,7 @@ article ul > li, section ul > li {
 }
 article ul > li:before, section ul > li:before {
     content: "—";
-    text-indent: -1.5em;
+    text-indent: -1.45em;
     position: absolute;
 }
 article ol, section ol {
@@ -214,7 +214,7 @@ article ol > li, section ol > li {
 }
 article ol > li:before, section ol > li:before {
     content: counter(numberedlist) ".";
-    text-indent: -1.5em;
+    text-indent: -1.45em;
     position: absolute;
 }
 *:not(ol li) {
