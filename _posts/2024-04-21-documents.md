@@ -53,7 +53,7 @@ tar -cz ".../path/to/the/documents/" | openssl enc -aes-256-cbc -md sha512 -pbkd
 
 There's no standard file extension for thusly encrypted data, so I chose `.tar.gz.bin` to signify that it's some sort of binary blob containing `.tar.gz` data.
 
-*Note on sensitive data and command-line applications:* Because I only ever run this command on my local machine, I don't worry greatly about passing the encryption password within a command-line argument – on a shared server, where other users might see it briefly pop up in the process list, another solution (*e.g.*, environment variables or a file[^xargs]) would be advisable.
+*Note on sensitive data and command-line applications:* Because I only ever run this command on my local machine, I don't worry greatly about passing the encryption password within a command-line argument – on a shared server, where other users might see it briefly pop up in the process list, [another](https://superuser.com/a/724987) solution (*e.g.*, environment variables or a file[^xargs]) would be advisable.
 
 [^xargs]: If you're going to store the password (and nothing else) in a file, be careful not to include any whitespace at the beginning or end of the file (*e.g.*, a newline character) – or, more resiliently to future inattention when, say, changing the password, just strip off any whitespace. In the command above, `... -pass pass:"$(cat ".../path/to/your/password.file" | xargs)" ...` would do the trick.
 
