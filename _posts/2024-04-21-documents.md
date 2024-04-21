@@ -20,7 +20,7 @@ these documents seem to warrant another "layer" or two of disaster proofing, my 
 
 Here's a heavily-redacted screenshot of the files[^german] in question (because images break up the monotony of mediocre prose):
 
-[^german]: 99% of what I do on computers is in English, so in retrospect, I'm not sure why I stuck to German for the naming of subdirectories here. Then again, translating terms like "Lohnsteuerbescheinigungen", "Sozialversicherungsausweis" and "Steueridentifikationsnummer" into another language might be akin to denying my cultural heritage.
+[^german]: 99% of what I do on computers is in English, so in retrospect, I'm not sure why I stuck to German for the naming of subdirectories here. Then again, translating terms like *Lohnsteuerbescheinigungen*, *Sozialversicherungsausweis* and *Steuerliche Identifikationsnummer* into another language might be akin to denying my cultural heritage.
 
 {:.wide}
 ![]({% link /static/documents.png %})
@@ -60,7 +60,7 @@ There's no standard file extension for thusly encrypted data, so I chose `.tar.g
 
 ## Distribution
 
-I just copy the resulting `.tar.gz.bin` file to a couple of locations – presently, that's my iCloud Drive[^paranoia] and the server this website is running on (for which `scp` is my tool of choice). Since the file is encrypted, there's technically no reason (apart from common sense) not to distribute it widely, assuming that the password's going to remain[^passman] private. ~~Ask me for a copy and I might well send you one!~~
+I just copy the resulting `.tar.gz.bin` file to a couple of locations – presently, that's my iCloud Drive[^paranoia] and the server this website is running on (transferred via `scp`). Since the file is encrypted, there's technically no reason (apart from common sense) not to distribute it widely, assuming that the password's going to remain[^passman] private. ~~Ask me for a copy and I might well send you one!~~
 
 [^paranoia]: Where, as far as I can tell, Apple (and whatever American goverment agencies might be interested) can access it, hence the encryption. *I'm not paranoid, you're paranoid!*
 
