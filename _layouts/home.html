@@ -4,7 +4,7 @@ layout: default
 <section>
     {{ content }}
 
-    <div class="postlist">
+    <div class="archives">
         {% for post in site.posts %}
             {% assign currentdate = post.date | date: "%Y" %}
             {% if currentdate != date %}
@@ -20,6 +20,7 @@ layout: default
                 <h2>
                     <a href="{{ post.url | relative_url }}">{{ post.title | escape | markdownify | remove: '<p>' | remove: '</p>' }}</a>
                 </h2>
+                {{ post.blurb | escape | markdownify }}
             </li>
             {% if forloop.last %}
                 </ol>
