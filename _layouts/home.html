@@ -15,7 +15,12 @@ layout: default
                 <ol class="archive">
                 {% assign date = currentdate %}
             {% endif %}
-            <li><span>{{ post.date | date: "%b %-d" }}</span><h2><a href="{{ post.url | relative_url }}">{{ post.title | escape | markdownify | remove: '<p>' | remove: '</p>' }}</a></h2></li>
+            <li>
+                <time>{{ post.date | date: "%b %-d" }}</time>
+                <h2>
+                    <a href="{{ post.url | relative_url }}">{{ post.title | escape | markdownify | remove: '<p>' | remove: '</p>' }}</a>
+                </h2>
+            </li>
             {% if forloop.last %}
                 </ol>
             {% endif %}

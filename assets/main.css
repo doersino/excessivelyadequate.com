@@ -80,14 +80,14 @@ aside abbr {
 }
 
 /* headings */
-h1, h2, h3, h4, .archive span {
+h1, h2, h3, h4, .archive time {
     font-family: var(--font-meta);
 }
 h1 {
     font-size: 1.5rem;
     line-height: 1.3;
 }
-h2, .archive span {
+h2, .archive time {
     font-size: 1.2rem;
 }
 h1, h2, h3 {
@@ -106,19 +106,19 @@ h3 {
 .archive li {
     margin: 1rem 0;
     list-style-type: none;
+    display: flex;
 }
 .archive li:before {
     display: none;
 }
-.archive span {
+.archive time {
     color: var(--color-meta);
     display: inline-block;
-    width: 4.5em;
     vertical-align: top;
+    width: 4.5em;
 }
 .archive h2 {
-    display: inline-block;
-    width: calc(100% - 4.5em);
+    flex: 1;
     margin: 0;
 }
 
@@ -360,7 +360,10 @@ a.footnote, a.reversefootnote {
     main > header h6 {
         font-size: 3.5em;
     }
-    .archive span, .archive h2 {
+    .archive li {
+        display: block;
+    }
+    .archive time, .archive h2 {
         width: 100%;
     }
     .wide img, pre {
