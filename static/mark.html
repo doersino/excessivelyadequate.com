@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <input id="searchbar" placeholder="search here" value="">
+    <ol id="purchases">
+        <li id="p1337">
+            <span class="date">2024-06-13 -</span>
+            <span class="who">Noah</span> paid 12 € for
+            <span class="description">things and stuff</span>.
+        </li>
+        <li id="p1335">
+            <span class="date">2024-06-12 -</span>
+            <span class="who">Noah</span> paid 52 € for
+            <span class="description">bits and bobs</span>.
+        </li>
+        <li id="p1334">
+            <span class="date">2024-06-12 -</span>
+            <span class="who">Noah</span> paid 0.99 € for
+            <span class="description">an Aardvark and also the A* Algorithm</span>.
+        </li>
+    </ol>
+
+    <script>
+        function clearHighlight(descriptionSpan) {
+            descriptionSpan.textContent = descriptionSpan.textContent;
+        }
+
+        function highlight(searchTerm, descriptionSpan) {
+
+            // nothing to do if the search field was empty
+            if (searchTerm.length == 0) {
+                return;
+            }
+
+            // case-insensitive split while capturing split string
+            const regEscape = v => v.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+            const bits = descriptionSpan.textContent.split(new RegExp('(' + regEscape(searchTerm) + ')', 'ig'));
+
+            // put back together while surrounding split strings (always at odd indices) with <mark>
+            const highlighted = bits.map((s, i) => {
+                if (i & 1) {
+                    const e = document.createElement('mark');
+                    e.appendChild(document.createTextNode(s));
+                    return e;
+                }
+                return document.createTextNode(s);
+            });
+
+            // finally, write back onto page
+            descriptionSpan.replaceChildren(...highlighted);
+        }
+
+        document.querySelector('#searchbar').addEventListener('input', event => {
+            const searchTerm = event.target.value;
+            document.querySelectorAll('#purchases li').forEach(purchaseLi => {
+                const descriptionSpan = purchaseLi.querySelector('span.description');
+                clearHighlight(descriptionSpan);  // remove highlights from previous searches
+
+                const match = descriptionSpan.textContent.toLowerCase().includes(searchTerm.toLowerCase());
+                if (match) {
+                    purchaseLi.style.display = '';  // if previously hidden, show
+                    highlight(searchTerm, descriptionSpan);
+                } else {
+                    purchaseLi.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
