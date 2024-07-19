@@ -8,7 +8,13 @@ My blog, [excessivelyadequate.com](https://excessivelyadequate.com), formerly kn
 
 The rest of this document serves as a *note to self* and is probably of little interest to you, dear reader.
 
-## Note on linking
+
+## Style guide
+
+Post titles in AP-style title case. Section headings not in title case (maybe I should revisit that). Abbreviations like "e.g." and "i.e." italicized belong italicized and between commas (Grust style).
+
+
+### Note on linking
 
 Link pages or media (in `static/`) like `{% link /static/image.jpg %}` but posts like `{% post_url 2024-04-05-name-of-post-without-extension %}` (when linking directly to post sections, add the `#section-title` outside/after the tag). For linking to dynamically-generated resources like the feed (or theme assets, I guess...?), `{{ "/feed.xml" | relative_url }}` ist best.
 
