@@ -35,7 +35,7 @@ html {
 body {
     font-family: var(--font-text);
     color: var(--color-text);
-    line-height: 1.5;
+    line-height: 1.6;
     background: var(--color-page-background);
     height: 100%;
 }
@@ -85,7 +85,7 @@ h1, h2, h3, h4, .archive time {
 }
 h1 {
     font-size: 1.5rem;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 h2, .archive time {
     font-size: 1.2rem;
@@ -239,12 +239,12 @@ img {
 }
 .double img {
     max-width: none;
-    width: calc(50% + 4rem - 0.2rem);
+    width: calc(50% + 4rem - 0.175rem);
     margin-left: -4rem;
 }
 .double img:nth-child(2n),
 .double a:nth-child(2n) img {
-    margin-left: 0.4rem;  /* roughly matches line-height left over below images, enabling 2x2 (or 2xN) images in .double */
+    margin-left: 0.35rem;  /* roughly matches line-height left over below images, enabling 2x2 (or 2xN) images in .double */
     margin-right: -4rem;
 }
 .left img {
