@@ -99,6 +99,29 @@ h3 {
     text-transform: uppercase;
 }
 
+/* anchors */
+h2, h3 {
+    .anchor {
+        background-image: url('anchor.svg');
+        background-repeat: no-repeat;
+        display: inline-block;
+        opacity: 0.7;
+    }
+    &:not(&:hover) .anchor {
+        display: none;
+    }
+}
+h2 .anchor {
+    height: 0.55em;
+    width: 0.55em;
+    margin-left: 0.2em;
+}
+h3 .anchor {
+    height: 0.7em;
+    width: 0.7em;
+    margin-left: 0.4em;
+}
+
 /* lists of posts */
 .archives {
     margin-top: 2rem;

@@ -27,5 +27,5 @@ layout: default
             document.getElementById("postedago").innerHTML = ago(date);
         </script>
     </header>
-    {{ content }}
+    {% include anchor_headings.html html=content anchorBody="" anchorClass="anchor" %}
 </article>

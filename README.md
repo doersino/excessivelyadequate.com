@@ -138,6 +138,8 @@ The software in this repository (i.e. everything *outside* of `_posts` and `stat
 
 [KaTeX](https://katex.org) is used for rendering math, its license can be found in its directory in `assets/`. As of August 2023, it's used server-side only as described [here](https://www.xuningyang.com/blog/2021-01-11-katex-with-jekyll/), but its minimized stylesheet and fonts (v0.16.8, via [here](https://github.com/KaTeX/KaTeX/releases)) are still part of this repository.
 
+The file `_includes/anchor_headings.html`, which adds anchor symbols to headings, is taken from the [jekyll-anchor-headings](https://github.com/allejo/jekyll-anchor-headings?tab=readme-ov-file) repository and licensed under the [MIT License](https://github.com/allejo/jekyll-anchor-headings/blob/master/LICENSE.md).
+
 ### Webfonts
 
 All webfonts (i.e. everything located in `assets/fonts/`) are licensed under the SIL Open Font License Version 1.1, a copy of which is included in each font's directory.
