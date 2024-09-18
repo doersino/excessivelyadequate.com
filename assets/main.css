@@ -105,7 +105,7 @@ h2, h3 {
         background-image: url('anchor.svg');
         background-repeat: no-repeat;
         display: inline-block;
-        opacity: 0.7;
+        opacity: 0.6;
     }
     &:not(&:hover) .anchor {
         display: none;
