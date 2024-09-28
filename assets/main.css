@@ -198,6 +198,9 @@ code:not(pre code), kbd {
     padding: 0.05em 0.1em;
     border-radius: 0.1em;
 }
+code:not(pre code) {
+    overflow-wrap: break-word;  /* avoid making long names in <code> widen the page */
+}
 pre {
     overflow-x: scroll;
     background-color: var(--color-code-background);
