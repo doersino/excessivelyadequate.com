@@ -124,13 +124,13 @@ Finally, run `jekyllinstall` and `jekyllserve`.
 
 ## Notes
 
-* Might need to run `networksetup -setv6off “Wi-Fi”` before doing any fancy Ruby stuff because `api.rubygems.org` (or something on the way there) can't properly speak IPv6. Then turn it back on again using `networksetup -setv6automatic “Wi-Fi”`. Ugh.
+* ~~Might need to run `networksetup -setv6off “Wi-Fi”` before doing any fancy Ruby stuff because `api.rubygems.org` (or something on the way there) can't properly speak IPv6. Then turn it back on again using `networksetup -setv6automatic “Wi-Fi”`. Ugh.~~ Probably not necessary anymore.
 * Files to be used in posts are to be sorted into `static/`, theme assets into `assets/`.
 
 
 ## License
 
-My blog posts are licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License.
+My blog posts are licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License unless otherwise noted.
 
 The software in this repository (i.e. everything *outside* of `_posts` and `static`) is licensed under the more liberal MIT License, see `LICENSE`. This license does not, however, apply to the following:
 
@@ -147,3 +147,7 @@ All webfonts (i.e. everything located in `assets/fonts/`) are licensed under the
 * Work Sans has been downloaded from [its GitHub repository](https://github.com/weiweihuanghuang/Work-Sans) at commit `28b121c`.
 * Iosevka has been downloaded from [the releases section of its GitHub repository](https://github.com/be5invis/Iosevka/releases), namely `01-iosevka-2.3.3.zip`.
 * Literata has been grabbed from [the releases section of its GitHub repository](https://github.com/googlefonts/literata/releases/), namely `3.103.zip` of release "3.103".
+
+### Assets
+
+The anchor icon displayed next to headings on hover is taken from the coat of arms of Sweden's Norrtälje Municipality as [uploaded to Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Norrtäljes_vapen.svg). It's in the public domain.
