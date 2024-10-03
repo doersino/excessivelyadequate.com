@@ -6,7 +6,7 @@ date:         2024-10-02 12:00:00 +0200
 
 At [work](https://www.suedweststrom.de)[^threeoffour], we recently moved our internal knowledge base from a relatively creaky [DokuWiki](https://www.dokuwiki.org/dokuwiki) instance to a much more modern [BookStack](https://www.bookstackapp.com) setup. It's great and *requires* very little configuration, which – perhaps counter-intuitively – made me *want* to inflict some custom CSS (and a bit of JavaScript) upon[^customization] it.
 
-[^threeoffour]: Three of my most recent four posts start with those two words. Boss makes a dollar, I make a dime (and get something to write about).
+[^threeoffour]: Three of my most recent four posts start with those two words. Boss makes a dollar, I make a dime – and get to (under certain conditions) write about stuff I built on company time.
 
 [^customization]: In the "Customization" category of BookStack's settings, there's a "Custom HTML Head Content" option that allows an administrator to conveniently patch a bit of code into each page's `<head>` element without having to futz with template files (and thus complicating upgrades).
 
