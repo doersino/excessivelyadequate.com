@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "BookStack Hackery: Adding External Link Icons, Fewer Clicks to Copy a Page's Permalink, Displaying Banners Based on Tags, and More"
+title:        "BookStack Hacks: Adding External Link Icons, Fewer Clicks to Copy a Page's Permalink, and More"
 date:         2024-10-02 12:00:00 +0200
 ---
 
@@ -78,7 +78,7 @@ Similarly, with a different selector and another[^othericon] icon "<svg xmlns="h
 
 At the time of writing, BookStack's page URLs look like `https://your-bookstack.url/books/the-two-towers/page/the-last-march-of-the-ents`. Were a [friendly](https://en.wikipedia.org/wiki/List_of_Friends_episodes) editor to rename that page to "The One Where the Ents Flood Isengard", the URL would change accordingly, breaking[^revisionsystem] inbound links. Modifying book titles is even more impactful, affecting the URLs of all pages located in the relevant book.
 
-[^revisionsystem]: "Old" links may continue to work, but that's not something you can rely on, according to [BookStack's documentation](https://www.bookstackapp.com/docs/user/content-permalinks/): "Upon name changes of the book or page, BookStack will use the revision system to attempt resolving when old links are used but it is possible for some actions to cause old page links to no longer lead to the updated content."
+[^revisionsystem]: Old links may continue to work, but that's not something you can rely on, according to [BookStack's documentation](https://www.bookstackapp.com/docs/user/content-permalinks/): "Upon name changes of the book or page, BookStack will use the revision system to attempt resolving when old links are used but it is possible for some actions to cause old page links to no longer lead to the updated content."
 
 While BookStack is smart enough to cascade name changes, *i.e.*, it automatically adjusts internal links as you rename pages (and books, and chapters), external references to BookStack don't receive this treatment, of course. At work, this matters because we refer to BookStack pages in all kinds of places – internal tools, infrastructure alerts, task descriptions in various automation tools, and more – to provide context and more information.
 
