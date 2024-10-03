@@ -141,7 +141,7 @@ During our migration from DokuWiki, where we had to update a whole bunch of link
 The inline comments explain what's happening in nigh-excruciating detail, but in short: The script determines the page's identifier, uses that to assemble a permalink, which it then patches into the sidebar, finally adding a click handler to copy the permalink to the clipboard (while providing visual feedback) instead of navigating to it.
 
 
-## Displaying banners (or making other style modifications) based on tags
+## Displaying banners (or making other style changes) based on tags
 
 To perform the initial migration of our DokuWiki content into BookStack, we'd built a script that renders DokuWiki's formatting syntax as HTML, adjusts wikilinks to target BookStack's URL scheme, collects images and other media, then uploads all that via [BookStack's API](https://www.bookstackapp.com/docs/admin/hacking-bookstack/#bookstack-api). This process transferred most pages just fine, but some were in need of minor adjustment – which is why we had our script set a tag `check-import` on each page, aptly named to indicate the need to manually check whether everything's still up to snuff.
 
@@ -202,7 +202,7 @@ We've also set up a job that regularly dynamically generates certain pages (most
 
 ---
 
-With these "hacks" in place, the screenshot below shows how a page[^bookstackdemo] might now appear: Notice the tag-dependent banner up top, the "Copy permalink" item in the sidebar, and the icons next to some links.
+With these modifications in place, the screenshot below shows how a page[^bookstackdemo] might now appear: Notice the tag-dependent banner up top, the "Copy permalink" item in the sidebar, and the icons next to some links.
 
 [^bookstackdemo]: In BookStack's [demo instance](https://demo.bookstackapp.com), in this case.
 
