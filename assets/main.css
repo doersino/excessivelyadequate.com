@@ -8,7 +8,10 @@
 
     --color-page-background: #f4f4f4;
     --color-main-background: white;
-    --color-code-background: #e8e8e8;
+    --color-inline-code-background: var(--cc-mariana-white3-brighter);
+    --color-inline-code-foreground: var(--cc-mariana-blue3);
+    --color-code-block-background: var(--cc-mariana-blue3);
+    --color-code-block-foreground: var(--cc-mariana-white3);
 
     --color-logo-text: #d9d9d9;
     --color-logo-hover: var(--color-link-hover);
@@ -23,13 +26,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-weight: normal;
     list-style-type: none;
 }
 
 /* outermost elements */
 html {
-    font-size: 18px;
+    font-size: 18px;  /* if changing, also modify media queries */
     height: 100%;
 }
 body {
@@ -82,6 +84,7 @@ aside abbr {
 /* headings */
 h1, h2, h3, h4, .archive time {
     font-family: var(--font-meta);
+    font-weight: normal;
 }
 h1 {
     font-size: 1.5rem;
@@ -155,6 +158,8 @@ h3 .anchor {
 /* intra-article elements */
 p {
     margin: 1em 0;
+}
+p, li {
     font-weight: 380;
 }
 strong {
@@ -194,16 +199,18 @@ code, kbd {
     font-family: var(--font-code);
 }
 code:not(pre code), kbd {
-    background-color: var(--color-code-background);
-    padding: 0.05em 0.1em;
-    border-radius: 0.1em;
+    background-color: var(--color-inline-code-background);
+    color: var(--color-inline-code-foreground);
+    padding: 0.1em 0.15em;
+    border-radius: 0.15em;
 }
 code:not(pre code) {
     overflow-wrap: break-word;  /* avoid making long names in <code> widen the page */
 }
 pre {
     overflow-x: scroll;
-    background-color: var(--color-code-background);
+    background-color: var(--color-code-block-background);
+    color: var(--color-code-block-foreground);
     padding: 1rem;
     font-size: 0.8em;
     margin-top: 1rem;
@@ -214,7 +221,7 @@ code:hover, pre:hover {
     font-variant-ligatures: none;
 }
 kbd {
-    border: 1px solid var(--color-accent);
+    border: 0.05em solid var(--color-accent);
     border-bottom-width: 0.1em;
     margin-left: 0.05em;
 }
@@ -305,7 +312,6 @@ div + p.caption {  /* for code captions */
 /* links */
 a {
     color: var(--color-link);
-    font-weight: inherit;
 }
 a:hover {
     color: var(--color-link-hover);
@@ -313,7 +319,6 @@ a:hover {
 header a, .archive h2 a {
     color: inherit;
     text-decoration: none;
-    font-weight: inherit;
 }
 header a:hover, .archive h2 a:hover {
     color: var(--color-link-hover);
@@ -343,11 +348,6 @@ a.footnote, a.reversefootnote {
 }
 .footnotes ol > li p:first-child {
     display: inline;  /* fix for chrome and firefox not merging list number into footnote text when list-style-position: inside; is set*/
-}
-
-/* background svg */
-.bgtemp {
-    display: none;
 }
 
 /* remove background (plus related changes to wide elements) on narrow screens */
@@ -388,11 +388,8 @@ a.footnote, a.reversefootnote {
     }
 }
 
-/* make logo smaller on tiny screens */
+/* few changes on even narrower screens */
 @media screen and (max-width: calc(34 * 18px)) {  /* calc( * 18px) cause rem doesn't work here */
-    main > header h6 {
-        font-size: 3.5em;
-    }
     .archive li {
         display: block;  /* not grid anymore */
     }

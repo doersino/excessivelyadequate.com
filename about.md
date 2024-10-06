@@ -17,6 +17,4 @@ This [Jekyll](https://jekyllrb.com) blog was most recently updated on {{ site.ti
 
 Headlines and such are set in [Work Sans](https://github.com/weiweihuanghuang/Work-Sans), code is displayed in [Iosevka](https://github.com/be5invis/Iosevka/releases) and everything else uses the [Literata](https://github.com/googlefonts/literata) font – except for math, which is displayed using [KaTeX](https://katex.org) with its default font.
 
-The background image is a randomly-generated instance of the late [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), with living cells drawn as arbitrary shapes.
-
 *If you've come across an error in a post (even if it's only a typo), please let me know, preferably by [filing an issue](https://github.com/doersino/excessivelyadequate.com/issues/new) or [sending a pull request](https://github.com/doersino/excessivelyadequate.com) (in which case you'll be [listed as a contributor](https://github.com/doersino/excessivelyadequate.com/graphs/contributors)).*
