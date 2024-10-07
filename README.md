@@ -130,9 +130,9 @@ Finally, run `jekyllinstall` and `jekyllserve`.
 
 ## License
 
-My blog posts are licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License unless otherwise noted.
+My *blog posts* are licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License unless otherwise noted. You can alternatively use *code snippets* under the terms of the more liberal MIT License, see `LICENSE`.
 
-The software in this repository (i.e. everything *outside* of `_posts` and `static`) is licensed under the more liberal MIT License, see `LICENSE`. This license does not, however, apply to the following:
+The *software* in this repository (i.e. everything *outside* of `_posts` and `static`) is licensed under the  MIT License, see `LICENSE`. This license does not, however, apply to the following:
 
 ### Libraries
 

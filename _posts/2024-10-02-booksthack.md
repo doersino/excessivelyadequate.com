@@ -82,7 +82,7 @@ At the time of writing, BookStack's page URLs look like `https://your-bookstack.
 
 While BookStack is smart enough to cascade name changes, *i.e.*, it automatically adjusts internal links as you rename pages (and books, and chapters), external references to BookStack don't receive this treatment, of course. At work, this matters because we refer to BookStack pages in all kinds of places – internal tools, infrastructure alerts, task descriptions in various automation tools, and more – to provide context and more information.
 
-To avoid links dying as we occasionally rename and move stuff, we[^trytorememberto] refer to *permalinks* instead of the human-readable URLs: Internally, each page is stored with identifier like `1337`, and links of the form `https://your-bookstack.url/link/1337` then redirect to the "standard" URL. BookStack [provides that permalink](https://www.bookstackapp.com/docs/user/content-permalinks/) in a roundabout way:
+To avoid links dying as we occasionally rename and move stuff, we[^trytorememberto] refer to *permalinks* instead of the human-readable URLs: Internally, each page is stored with identifier like `1337`, and links of the form `https://your-bookstack.url/link/1337` then redirect to the "standard" URL. BookStack [provides that permalink](https://www.bookstackapp.com/docs/user/content-permalinks/) in a slightly roundabout way:
 
 [^trytorememberto]: ...try to remember to...
 
