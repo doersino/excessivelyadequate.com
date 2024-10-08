@@ -290,6 +290,10 @@ img {
     width: calc(66% + 4rem);
     margin-left: 34%;
 }
+.about-background img {
+    margin-bottom: -5em;  /* 4em like <main> padding-bottom plus a bit for line height */
+    margin-top: -1em;
+}
 pre {
     max-width: none;
     width: calc(100% + 12rem);
