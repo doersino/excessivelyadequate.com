@@ -16,6 +16,7 @@
 title: Excessively Adequate
 author: Noah Doersing
 email: hi@noahdoersing.com
+fediverse: @doersino@mastodon.social  # for fediverse:creator meta tag
 description: > # this means to ignore newlines until "baseurl:"
   This is a blog about programming and adjacent topics that interest me.
 baseurl: "" # the subpath of your site, e.g. /blog
