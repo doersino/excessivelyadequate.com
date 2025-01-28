@@ -20,7 +20,7 @@ layout: default
                 <h2>
                     <a href="{{ post.url | relative_url }}">{{ post.title | escape | markdownify | remove: '<p>' | remove: '</p>' }}</a>
                 </h2>
-                {{ post.blurb | escape | markdownify }}
+                {{ post.subtitle | escape | markdownify }}
             </li>
             {% if forloop.last %}
                 </ol>

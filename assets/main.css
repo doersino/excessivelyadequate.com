@@ -136,7 +136,7 @@ h3 .anchor {
     grid-template-columns: 5.5em 1fr;
     grid-template-areas:
         "date title"
-        "date blurb";
+        "date subtitle";
 }
 .archive li:before {
     display: none;
@@ -150,9 +150,11 @@ h3 .anchor {
     margin: 0;
 }
 .archive p {
-    grid-area: blurb;
+    grid-area: subtitle;
     margin: 0.5em 0 0.2em;
     font-size: 0.8em;
+    font-family: var(--font-meta);
+    font-style: oblique;
 }
 
 /* intra-article elements */
