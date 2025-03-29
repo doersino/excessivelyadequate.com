@@ -119,7 +119,7 @@ alias jekyllserve='bundle exec jekyll serve'
 alias jekyllservei='bundle exec jekyll serve --incremental'
 ```
 
-Finally, run `jekyllinstall` and `jekyllserve`.
+Finally, run `jekyllinstall` and `jekyllserve` or `jekyllserve --drafts --host=0.0.0.0`.
 
 
 ## Notes
