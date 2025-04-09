@@ -3,7 +3,6 @@ layout: default
 ---
 <section>
     {{ content }}
-
     <div class="archives">
         {% for post in site.posts %}
             {% assign currentdate = post.date | date: "%Y" %}
@@ -27,4 +26,9 @@ layout: default
             {% endif %}
         {% endfor %}
     </div>
+    <!--<hr>
+    <p>And to reward you for scrolling all the way to the bottom, here's the yellow sea (as seen from the island of Imja-do) on a calm summer day.</p>-->
+    {% if page.imjado %}
+        <img src="{{ "/assets/imjado.jpg" | relative_url }}" class="imjado">
+    {% endif %}
 </section>

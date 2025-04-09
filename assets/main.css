@@ -267,7 +267,7 @@ article ol > li:before, section ol > li:before {
 img {
     max-width: 100%;
 }
-.wide img {
+.wide img, .imjado {
     max-width: none;
     width: calc(100% + 8rem);
     margin-left: -4rem;
@@ -292,7 +292,7 @@ img {
     width: calc(66% + 4rem);
     margin-left: 34%;
 }
-.about-background img {
+.imjado {
     margin-bottom: -5em;  /* 4em like <main> padding-bottom plus a bit for line height */
     margin-top: -1em;
 }
@@ -372,7 +372,7 @@ a.footnote, a.reversefootnote {
         width: calc(100vw - 2em);
         margin-left: calc(-0.5 * (100vw - 100%) + 1em);
     }
-    .wide img {
+    .wide img, .imjado {
         width: 100vw;
         margin-left: calc(-0.5 * (100vw - 100%));
     }
@@ -399,7 +399,7 @@ a.footnote, a.reversefootnote {
     .archive li {
         display: block;  /* not grid anymore */
     }
-    .wide img, pre {
+    .wide img, .imjado, pre {
         width: calc(100% + 2rem);
         margin-left: -1rem;
     }
@@ -422,7 +422,7 @@ a.footnote, a.reversefootnote {
         max-width: 34em;
         padding: 1em 1em 1px;
     }
-    main > header, pre, .wide img {
+    main > header, pre, .wide img, .imjado {
         width: 100%;
         margin-left: 0;
     }
