@@ -85,7 +85,7 @@ Maintaining the same ridiculous comments-to-code ratio as in my [previous post o
     // note: "position: absolute" to avoid shifting content around a split-second after page load, which can be jarring
     const showRedirectNotice = message => {
       const redirectNotice = `
-        <p style="opacity: 0.75; font-style: italic; position: absolute; margin-top: -0.2em; overflow-x: hidden;">
+        <p style="opacity: 0.75; font-style: italic; position: absolute; margin-top: -0.2em; overflow-x: hidden; z-index: 10;">
           (${message})
         </p>
       `;
