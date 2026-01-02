@@ -318,9 +318,13 @@ div + p.caption {  /* for code captions */
 /* links */
 a {
     color: var(--color-link);
+    font-weight: 430;  /* as per https://blog.kizu.dev/bolder-links/ */
 }
 a:hover {
     color: var(--color-link-hover);
+}
+strong a {
+    font-weight: inherit;
 }
 header a, .archive h2 a {
     color: inherit;
