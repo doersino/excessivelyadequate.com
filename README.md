@@ -68,6 +68,7 @@ fi
 # make sure that everything's installed
 bundle config set --local path "vendor/bundle"
 bundle config set --local deployment "true"
+bundle config set frozen false
 bundle install
 
 # kick off the build
