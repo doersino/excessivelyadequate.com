@@ -106,7 +106,8 @@ Maintaining the same ridiculous comments-to-code ratio as in my [previous post o
     // only do stuff if we're on a page and the first paragraph begins with "#REDIRECT"
     const isPage = !!document.querySelector("#page-details");
     const firstParagraph = document.querySelector(".page-content p");
-    if (isPage && firstParagraph.textContent.trim().startsWith("#REDIRECT")) {
+    const hasFirstParagraph = !!firstParagraph;  // selection fails on empty redirect target pages, which would throw an error if we didn't handle this case below
+    if (isPage && hasFirstParagraph && firstParagraph.textContent.trim().startsWith("#REDIRECT")) {
 
       // quit if the url query string contains "no_redirect" (to enable the user to edit the page)
       if (location.search.includes("no_redirect")) {
